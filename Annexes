@@ -1,2 +1,13 @@
 Bundles utilisés:
-
+    Annotation
+    Tiwg
+    Form
+    Doctrine
+    Validator
+    Security-csrf
+    Profiler
+    Maker
+    Mailer
+    Google-mailer
+    webpack-encore
+GITHUB : https://github.com/HugoD66/SDS-App.git
