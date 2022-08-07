@@ -1,6 +1,29 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import 'designsystem';
 
+
+
+nav {
+  button {
+    margin-right: 10%;
+    height: 70px;
+    width: 70px;
+  }
+}
+
 body {
-  background-color: #d6c7c7;
+  background-color: $gray-900;
+}
+
+
+
+.acceuil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: auto;
+  img {
+
+  }
 }

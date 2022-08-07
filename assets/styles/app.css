@@ -11777,8 +11777,22 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+nav button {
+  margin-right: 10%;
+  height: 70px;
+  width: 70px;
+}
+
 body {
-  background-color: #d6c7c7;
+  background-color: #212529;
+}
+
+.acceuil {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: auto;
 }
 
 /*# sourceMappingURL=app.css.map */

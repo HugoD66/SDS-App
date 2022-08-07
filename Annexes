@@ -4,11 +4,13 @@ Bundles utilisés:
     Form
     Doctrine
     Validator
-    Security-csrf
     Profiler
     Maker
     Mailer
     Google-mailer
     webpack-encore
     Requirements-checker
+    Security-bundle
+    Security-csrf
+
 GITHUB : https://github.com/HugoD66/SDS-App.git
