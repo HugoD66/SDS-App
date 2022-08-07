@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="HSQLDB (Local)" uuid="7cf1e8fa-42c6-4bf0-ab9c-744cd69db343">
-      <driver-ref>hsqldb.local</driver-ref>
+    <data-source source="LOCAL" name="@localhost" uuid="4d79cbba-a00d-405a-bba2-12fcc6b3de36">
+      <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
-      <configured-by-url>true</configured-by-url>
-      <jdbc-driver>org.hsqldb.jdbc.JDBCDriver</jdbc-driver>
-      <jdbc-url>jdbc:hsqldb:file:$PROJECT_DIR$/../../../../xampp/mysql/data/sds@002ddb/</jdbc-url>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://localhost:3306</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

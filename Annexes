@@ -12,5 +12,6 @@ Bundles utilisés:
     Requirements-checker
     Security-bundle
     Security-csrf
+    verify-email-bundle
 
 GITHUB : https://github.com/HugoD66/SDS-App.git
