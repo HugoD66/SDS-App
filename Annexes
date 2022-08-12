@@ -13,5 +13,6 @@ Bundles utilisés:
     Security-bundle
     Security-csrf
     verify-email-bundle
+    rate-limiter (contre attaque force brute -securitee)
 
 GITHUB : https://github.com/HugoD66/SDS-App.git
