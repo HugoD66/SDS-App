@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanelController!{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block body %}
 <div class="panel">
@@ -8,5 +8,68 @@
 
 
 
+    <div class="tableEntreprise">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Nom de l'entreprise </th>
+            <th scope="col"><u>{{ partenaire.clientName }}</u></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>Entreprise active ? </th>
+            <th> {{ partenaire.active }}</th>
+        </tr>
+        <tr>
+            <th>Description rapide  </th>
+            <th> {{ partenaire.shortDescription }}</th>
+        </tr>
+        <tr>
+            <th>Descirption complète </th>
+            <th>{{ partenaire.fullDescription }}</th>
+        </tr>
+        <tr>
+            <th>Logo </th>
+            <th>    <img src="{{ asset('picture/recipe-picture/' ~ partenaire.getLogo()) }}" alt="Image du logo de l'entreprise">
+            </th>
+        </tr>
+        <tr>
+            <th>Site de l'entreprise</th>
+            <th>{{ partenaire.url }}</th>
+        </tr>
+        <tr>
+            <th>Politique de confidentialitée</th>
+            <th>  {{ partenaire.dpo }}</th>
+        </tr>
+        <tr>
+            <th>Numero du technicien </th>
+            <th><a href="tel:0606060606"> {{ partenaire.technicalContact }}</a></th>
+        </tr>
+        <tr>
+            <th>Numero du commercial</th>
+            <th> <a href="tel:0607070707">{{ partenaire.commercialContact }}</a></th>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="listeStructures">
+        {% for structures in structure %}
+        <div class="card">
+            <img src="{{ asset('picture/recipe-picture/' ~ structures.getLogoStructure()) }} " class="card-img-top" alt="Image de la structure">
+            <div class="card-body">
+                <h4>•<a class="card-title" href="{{ path('app_structure', {'id' : structures.id }) }}"> {{ structures.name }} </a></h4>
+                <ul>
+                    <li>Email du gérant : {{ structures.email }}</li>
+                    <li>Ville : {{ structures.city }}</li>
+                    <li>Nom de la structure : {{ structures.name }}</li>
+                    <li>En activitée : {{ structures.active }}</li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
 </div>
 {% endblock %}

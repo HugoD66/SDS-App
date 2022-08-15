@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    <div class="structureId">
+
+     <img src="{{ asset('picture/recipe-picture/' ~ structure.getLogoStructure()) }} " class="card-img-top" alt="Image de la structure">
+    <li>Ville : {{ structure.city }}</li>
+    <li>Nom de la structure : {{ structure.name }}</li>
+    <li>En activitée : {{ structure.active }}</li>
+
+        {% set permission = [] %}
+        {% for permissions in permission %}
+
+            {{ permission }}
+        {% endfor %}
+
+    </div>
+{% endblock %}

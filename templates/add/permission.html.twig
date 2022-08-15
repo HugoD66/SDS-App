@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+<h1>Ajout du bâtiment</h1>
+
+<div class="formTwig">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.send_newsletter) }}
+    {{ form_row(form.sell_drink) }}
+    {{ form_row(form.payment_stats) }}
+    {{ form_row(form.add_members) }}
+    {{ form_row(form.recrut_employee) }}
+    {{ form_row(form.activated_website) }}
+    {{ form_row(form.place_search) }}
+    {{ form_row(form.restaurant_site) }}
+    {{ form_row(form.renovation) }}
+    {{ form_row(form.available_coach) }}
+    {{ form_row(form.street) }}
+    {{ form_row(form.branch_id) }}
+    {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
+    {{ form_end(form) }}
+</div>
+{% endblock %}

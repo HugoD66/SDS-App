@@ -2,8 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Partenaire;
+use App\Entity\Structure;
 use App\Form\PartenaireType;
+use App\Form\StructureType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -12,41 +13,41 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class AddPartenaireController extends AbstractController
+class AddStructureController extends AbstractController
 {
-    #[Route('/add-partenaire', name: 'app_add_partenaire')]
+    #[Route('/add-structure', name: 'app_add_structure')]
     public function index(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
-        $partenaire = new Partenaire();
-        $form = $this->createForm(PartenaireType::class, $partenaire);
+        $structure = new Structure();
+        $form = $this->createForm(StructureType::class, $structure);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $logo = $form->get('logo')->getData();
-            if ($logo) {
-                $originalFilename = pathinfo($logo->getClientOriginalName(), PATHINFO_FILENAME);
+
+            $logoStructure = $form->get('logoStructure')->getData();
+            if ($logoStructure) {
+                $originalFilename = pathinfo($logoStructure->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $logo->guessExtension();
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $logoStructure->guessExtension();
                 try {
-                    $logo->move(
+                    $logoStructure->move(
                         $this->getParameter('recipe-picture'),
                         $newFilename
                     );
                 } catch (FileException $e) {
                 }
-                $partenaire->setLogo($newFilename);
+                $structure->setLogoStructure($newFilename);
 
-
-                $partenaire = $form->getData();
-
-                $entityManager->persist($partenaire);
-                $entityManager->flush();
+                $structure = $form->getData();
             }
-            return $this->redirectToRoute('app_add_partenaire_succes');
+            $entityManager->persist($structure);
+            $entityManager->flush();
+            return $this->redirectToRoute('app_add_structure_success');
+
 
         }
-        return $this->render('add/partenaire.html.twig', [
+        return $this->render('add/structure.html.twig', [
+            'title' => 'SDS - Ajout Structure',
             'form' => $form->createView(),
-            'title' => 'Ajout de l\'entreprise',
         ]);
     }
 }

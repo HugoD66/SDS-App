@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    <h1>Ajout d'une structure</h1>
+<div class="formTwig">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.email, {'label': 'Email du gérant'}) }}
+    {{ form_row(form.client_id, {'label': 'Appartient à la franchise: '}) }}
+    {{ form_row(form.city, {'label' : 'De la ville: '}) }}
+    {{ form_row(form.active, {'label': 'Structure déjàs en actvitée ? '}) }}
+    {{ form_row(form.name, {'label': 'Nom de la structure:'}) }}
+    {{ form_row(form.logoStructure, {'label': 'Logo de la structure:'}) }}
+    {{ form_row(form.install_id, {'label': 'Posséde déjas des bâtiments dans cette ville ? '}) }}
+    {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
+    {{ form_end(form) }}
+</div>
+{% endblock %}

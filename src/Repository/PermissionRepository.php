@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Permission;
+use App\Entity\Structure;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -38,6 +39,7 @@ class PermissionRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
 
 //    /**
 //     * @return Permission[] Returns an array of Permission objects

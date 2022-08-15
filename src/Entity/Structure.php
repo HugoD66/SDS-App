@@ -6,6 +6,8 @@ use App\Repository\StructureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: StructureRepository::class)]
 class Structure
@@ -32,6 +34,18 @@ class Structure
 
     #[ORM\OneToMany(mappedBy: 'branch_id', targetEntity: Permission::class)]
     private Collection $permissions;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    #[Assert\Image(
+        minWidth: 200,
+        maxWidth: 1200,
+        maxHeight: 1200,
+        minHeight: 200,
+    )]
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $logoStructure = null;
 
     public function __construct()
     {
@@ -131,5 +145,33 @@ class Structure
         }
 
         return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getLogoStructure(): ?string
+    {
+        return $this->logoStructure;
+    }
+
+    public function setLogoStructure(?string $logoStructure): self
+    {
+        $this->logoStructure = $logoStructure;
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->name;
     }
 }

@@ -197,4 +197,5 @@ class Permission
 
         return $this;
     }
+
 }

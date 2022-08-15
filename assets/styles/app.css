@@ -11859,17 +11859,137 @@ nav button {
   width: 100%;
 }
 
+.fixed-bottom {
+  max-height: 150px;
+}
+
+h1, .h1 {
+  font-size: 60px;
+  color: #DEDEDE;
+  font-family: Consolas, sans-serif;
+  margin: 50px auto;
+  text-decoration: underline 1px #DEDEDE;
+  text-align: center;
+}
+
 .panel {
   display: flex;
   justify-items: center;
   align-items: center;
   background-color: #DEDEDE;
+  width: 90%;
+  margin: auto;
+  flex-direction: column;
+}
+.panel img {
+  width: 500px;
+  height: 200px;
+  margin: 2% auto auto;
+  border-radius: 15%;
+}
+.panel .tableEntreprise {
+  margin: 30px;
+}
+.panel .tableEntreprise table {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+  border: 3px solid #212529;
+  font-family: Roboto Mono, sans-serif;
+}
+.panel .tableEntreprise table thead {
+  font-size: x-large;
+  height: 50px;
+  line-height: 50px;
+}
+.panel .tableEntreprise table img {
+  width: 300px;
+  height: 300px;
+}
+
+.structureId {
+  background-color: #DEDEDE;
+}
+
+.success {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #DEDEDE;
   width: 95%;
   margin: auto;
 }
+.success p {
+  text-align: center;
+  margin: 10% auto;
+  font-family: Roboto Mono, sans-serif;
+}
+.success img {
+  width: 80%;
+  height: 40%;
+  margin: auto auto 10%;
+}
 
-.fixed-bottom {
-  max-height: 150px;
+.formTwig {
+  background-color: #DEDEDE;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+.buttonSend {
+  margin: auto;
+  background-color: #598392;
+  align-items: center;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.buttonSend:after {
+  background-color: #212529;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform 0.2s ease-out;
+  z-index: -1;
+}
+
+.buttonSend:hover:after {
+  transform: translate(0, 0);
+}
+
+.buttonSend:active {
+  background-color: #212529;
+  outline: 0;
+}
+
+.buttonSend:hover {
+  outline: 0;
 }
 
 /*# sourceMappingURL=app.css.map */

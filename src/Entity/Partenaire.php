@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: PartenaireRepository::class)]
 class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
@@ -40,6 +43,12 @@ class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $full_description = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Image(
+        minWidth: 200,
+        maxWidth: 800,
+        maxHeight: 800,
+        minHeight: 200,
+    )]
     private ?string $logo = null;
 
     #[ORM\Column(length: 255)]
@@ -256,4 +265,9 @@ class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->client_name;
+    }
+
 }
