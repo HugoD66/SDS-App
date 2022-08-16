@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>Liste des structures</h1>
+    <div class="liste">
+
+            {% for structures in structure %}
+                <br>
+                <div class="card">
+                    <img src="{{ asset('picture/recipe-picture/' ~ structures.getLogoStructure()) }} " class="card-img-top" alt="Image de la structure">
+                    <div class="barreHorizontale"></div>
+
+                    <div class="card-body">
+                        <h4><a class="card-title" href="{{ path('app_structure', {'id' : structures.id }) }}"> {{ structures.name }} </a></h4>
+
+                        <ul>
+
+                            <li>Email du gérant : {{ structures.email }}</li>
+                            <li>Ville : {{ structures.city }}</li>
+                            <li>Nom de la structure : {{ structures.name }}</li>
+                            <li>En activitée : <b>{{ structures.active ? 'Oui' : 'Non' }}</b></li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('app_structure', {'id': structures.id}) }}" class="card-link">Lien de la structure</a>
+
+                    </div>
+                    <br>
+                </div>
+                <br>
+            {% endfor %}
+
+
+    </div>
+{% endblock %}

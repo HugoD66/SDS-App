@@ -6,13 +6,19 @@
 <div class="panel">
     <img src="{{ asset('picture/logo-marque/dark-boot-marque.png') }}" alt="Image principale d'acceuil">
 
+    <h1>Présentation</h1>
+    <p>Dantabase, entreprise implantée dans les solutions de <b>gestion en ligne d'entreprise</b>, s'est spécialisé dans la gestion des franchises.
+    implantée depuis 1988, elle donne accés à la gestion de votre franchise à votre équipe technique,  afin de faciliter leur organisation au niveau
+        national!
+    Si vous désirez vous faciliter la <b>vie</b>, gagner du <b>temps</b> ainsi que de <b>l'argent</b>, cette application est faite pour vous.</p>
 
-
+    <div class="barreHorizontale"></div>
+    <h2>Votre sociétée : </h2>
     <div class="tableEntreprise">
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Nom de l'entreprise </th>
+            <th scope="col">Nom de la franchise :  </th>
             <th scope="col"><u>{{ partenaire.clientName }}</u></th>
         </tr>
         </thead>
@@ -50,26 +56,18 @@
             <th>Numero du commercial</th>
             <th> <a href="tel:0607070707">{{ partenaire.commercialContact }}</a></th>
         </tr>
+        <tr>
+            <th>Nombre de structure possédées</th>
+            <th> <a href="{{ path('app_liste_structure') }}">{{ partenaire.structures.count }}</a></th>
+        </tr>
+        <tr>
+            <th>Nombre de bâtiments possédés en France</th>
+            <th> <a href="{{ path('app_liste_permissions') }}">{{ permission }}</a></th>
+        </tr>
         </tbody>
     </table>
     </div>
 
-    <div class="listeStructures">
-        {% for structures in structure %}
-        <div class="card">
-            <img src="{{ asset('picture/recipe-picture/' ~ structures.getLogoStructure()) }} " class="card-img-top" alt="Image de la structure">
-            <div class="card-body">
-                <h4>•<a class="card-title" href="{{ path('app_structure', {'id' : structures.id }) }}"> {{ structures.name }} </a></h4>
-                <ul>
-                    <li>Email du gérant : {{ structures.email }}</li>
-                    <li>Ville : {{ structures.city }}</li>
-                    <li>Nom de la structure : {{ structures.name }}</li>
-                    <li>En activitée : {{ structures.active }}</li>
-                </ul>
-            </div>
-        </div>
-        {% endfor %}
 
-    </div>
 </div>
 {% endblock %}

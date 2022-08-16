@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+<h1>Liste des établissements</h1>
+    <div class="liste">
+        {% for permission in permissions %}
+                <h2>Propiétaire :{{ permission.branchId }}</h2>
+                <h3>{{ permission.street }}</h3>
+            <ul>
+                <li>Envoyer newsletter : {{ permission.sendNewsletter ? 'Oui' : 'Non' }}</li>
+
+                <li>Vendre boissons : {{ permission.sellDrink ? 'Oui' : 'Non' }}</li>
+                <li>Voir stats paiement	: {{ permission.paymentStats ? 'Oui' : 'Non' }}</li>
+                <li>Ajouter membre : {{ permission.addMembers ? 'Oui' : 'Non' }}</li>
+                <li>Recruter sallarier : {{ permission.recrutEmployee ? 'Oui' : 'Non' }}</li>
+                <li>Site activé : {{ permission.activatedWebsite ? 'Oui' : 'Non' }}</li>
+                <li>Recherche nouveau lieu : {{ permission.placeSearch ? 'Oui' : 'Non' }}</li>
+                <li>Restaurant sur place : {{ permission.restaurantSite ? 'Oui' : 'Non' }}</li>
+                <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
+                <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -6,11 +6,26 @@ body {
   background-color: $bootDark;
 }
 nav {
+  width: 95%;
+  margin: auto;
   button {
-    margin-right: 10%;
     height: 70px;
     width: 70px;
+
   }
+  a {
+    margin: 20px;
+
+  }
+  li {
+    font-family: $text;
+    font-size: 15px;
+    color: $logoColor;
+    &:hover {
+      text-decoration: underline ;
+    }
+  }
+
 }
 .acceuil {
   min-width: 100%;
@@ -31,7 +46,7 @@ nav {
     a {
       text-decoration: none;
       color: $bootDark;
-      font-family: Consolas,sans-serif;
+      font-family: $buttonFamily;
     }
     margin: auto;
     width: 20%;
@@ -87,12 +102,17 @@ nav {
   max-height: 150px;
 }
 h1 {
+  font-family: $titleFamily;
   font-size: 60px;
   color: $logoColor;
-  font-family: Consolas, sans-serif;
   margin: 50px auto;
-  text-decoration: underline 1px $logoColor;
+  text-decoration: underline 2px $logoColor;
   text-align: center;
+}
+h2 {
+  font-family: Goudy Old Style, serif;
+  font-size: 40px;
+  color: $bootDark;
 }
 .panel {
   display: flex;
@@ -107,6 +127,20 @@ h1 {
     height: 200px;
     margin: 2% auto auto;
     border-radius: 15%;
+  }
+  p {
+    font-family: $text;
+    width: 60%;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+  h1 {
+    color: $bootDark;
+    text-decoration: underline 1px $bootDark;
+  }
+  h2 {
+    margin-top: 4%;
+
   }
   .tableEntreprise {
     margin: 30px;
@@ -130,7 +164,50 @@ h1 {
 }
 .structureId {
   background-color: $logoColor;
+}
+.liste {
+  margin: auto;
+  background-color: $logoColor;
+  width: 95%;
+  .card {
+    width: 80%;
+    margin: auto;
+    box-shadow: 5px 5px 17px 5px #000000;
+    font-family: $text;
+    .card-link{
+      text-decoration: none;
+      color: $bootDark;
+    }
+    .card-footer {
+      margin-bottom: 5%;
 
+    }
+    img {
+      max-width: 90%;
+      max-height: 30%;
+    }
+    .barreHorizontale {
+      margin: auto;
+    }
+    h2 {
+      font-family: $buttonFamily;
+      margin: auto;
+      text-align: center;
+    }
+    h4 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card-title {
+      font-family:$titleFamily ;
+      text-decoration: none;
+      color: $logoEntrepriseColor;
+      font-size: 24px;
+    }
+  .card-footer {
+    margin: auto;
+   }
+  }
 }
 .success {
   display: flex;
@@ -158,6 +235,12 @@ h1 {
   justify-content: center;
   align-items: center;
   width: 80%;
+}
+.barreHorizontale {
+  width: 80%;
+  background-color: $bootDark;
+  height: 2px;
+  border-radius: 90%;
 }
 .buttonSend {
   margin: auto;
@@ -208,3 +291,79 @@ h1 {
   outline: 0;
 }
 
+
+
+.toggler-wrapper.style-27 {
+  width: 54px;
+  height: 30px;
+}
+
+.toggler-wrapper.style-27 input[type="checkbox"]:checked+.toggler-slider .toggler-knob:before {
+  left: -100%;
+}
+
+.toggler-wrapper.style-27 input[type="checkbox"]:checked+.toggler-slider .toggler-knob:after {
+  right: 3px;
+}
+
+.toggler-wrapper.style-27 .toggler-knob {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.toggler-wrapper.style-27 .toggler-knob:before {
+  content: 'No';
+  position: absolute;
+  width: calc(30px - 6px);
+  height: calc(30px - 6px);
+  border-radius: 50%;
+  left: 3px;
+  top: 3px;
+  background-color: #fff;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 75%;
+  font-weight: 500;
+}
+
+.toggler-wrapper.style-27 .toggler-knob:after {
+  content: 'Yes';
+  position: absolute;
+  width: calc(30px - 6px);
+  height: calc(30px - 6px);
+  border-radius: 50%;
+  right: -100%;
+  top: 3px;
+  background-color: #fff;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-size: 75%;
+  font-weight: 500;
+}
+
+
+@media only screen and (min-width: 1200px) {
+  .card {
+    max-width: 40%;
+
+  }
+}

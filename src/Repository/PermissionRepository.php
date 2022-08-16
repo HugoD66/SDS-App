@@ -40,7 +40,13 @@ class PermissionRepository extends ServiceEntityRepository
         }
     }
 
-
+    public function countPermission()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('count(u.id)')
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Permission[] Returns an array of Permission objects
 //     */
