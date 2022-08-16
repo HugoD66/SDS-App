@@ -174,4 +174,5 @@ class Structure
     {
         return $this->name;
     }
+
 }

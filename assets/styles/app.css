@@ -11908,8 +11908,9 @@ h2, .h2 {
   border-radius: 15%;
 }
 .panel p {
+  background-color: rgba(27, 42, 51, 0.18);
   font-family: Roboto Mono, sans-serif;
-  width: 60%;
+  width: 65%;
   text-align: center;
   margin-bottom: 5%;
 }
@@ -11941,7 +11942,54 @@ h2, .h2 {
 }
 
 .structureId {
+  width: 90%;
+  margin: auto;
   background-color: #DEDEDE;
+}
+.structureId h2, .structureId .h2 {
+  margin: 3%;
+  text-align: center;
+  text-decoration: underline 3px #1b2a33;
+}
+.structureId h3, .structureId .h3 {
+  font-family: Goudy Old Style, serif;
+  color: rgba(62, 61, 60, 0.61);
+  font-weight: bolder;
+  margin: 5%;
+  margin-left: 10%;
+}
+.structureId li {
+  margin-top: 15px;
+  font-family: Roboto Mono, sans-serif;
+}
+
+.listePermissions {
+  margin: auto;
+  background-color: #DEDEDE;
+  width: 90%;
+  background-image: url("../../public/picture/logo-marque/logo-without-back.png");
+  background-repeat: no-repeat;
+  background-position: right 4% bottom 55%;
+}
+.listePermissions table {
+  border: 1px #212529;
+  width: 60%;
+}
+.listePermissions table thead {
+  background-color: #212529;
+  color: #DEDEDE;
+  font-family: Goudy Old Style, serif;
+  font-size: 18px;
+}
+.listePermissions table tbody {
+  font-family: Roboto Mono, sans-serif;
+}
+.listePermissions button a {
+  text-decoration: none;
+  font-family: Consolas, sans-serif;
+  color: #212529;
+  font-size: 22px;
+  border-color: #212529;
 }
 
 .liste {
@@ -12021,11 +12069,12 @@ h2, .h2 {
   background-color: #212529;
   height: 2px;
   border-radius: 90%;
+  margin: auto;
 }
 
 .buttonSend {
   margin: auto;
-  background-color: #598392;
+  background-color: rgba(89, 131, 146, 0.7);
   align-items: center;
   border: 2px solid #111;
   border-radius: 8px;
@@ -12047,7 +12096,6 @@ h2, .h2 {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-
 .buttonSend:after {
   background-color: #212529;
   border-radius: 8px;
@@ -12062,16 +12110,13 @@ h2, .h2 {
   transition: transform 0.2s ease-out;
   z-index: -1;
 }
-
 .buttonSend:hover:after {
   transform: translate(0, 0);
 }
-
 .buttonSend:active {
   background-color: #212529;
   outline: 0;
 }
-
 .buttonSend:hover {
   outline: 0;
 }

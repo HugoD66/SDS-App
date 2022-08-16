@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+<h1>Bâtiment</h1>
+        <img style=" display:flex; align-items: center; border-radius: 90%; max-height: 8%; max-width: 35%; margin: 3% auto;"
+         src="{{ asset('picture/recipe-picture/' ~ permission.branchId.logoStructure) }}"
+         alt="Logo de la structure">
+
+    <div class="structureId"><br>
+        <h3><u>Adresse</u> : {{ permission.street }}</h3>
+
+    <div class="listePermissions">
+
+
+        <div class="barreHorizontale"></div>
+        <table class="table"><br>
+            <thead>
+                <tr>
+                    <th scope="col">Propriétées disponibles</th>
+                    <th scope="col">Permission </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Envoyer newsletter :</th>
+                    <th>{{ permission.sendNewsletter ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Vendre boissons : </th>
+                    <th>{{ permission.sellDrink ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Voir stats paiement	: </th>
+                    <th>{{ permission.paymentStats ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Ajouter membre : </th>
+                    <th>{{ permission.addMembers ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Recruter sallarier : </th>
+                    <th>{{ permission.recrutEmployee ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Site activé : </th>
+                    <th>{{ permission.activatedWebsite ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Recherche nouveau lieu : </th>
+                    <th>{{ permission.placeSearch ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Restaurant sur place : </th>
+                    <th>{{ permission.restaurantSite ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Renauvation à pervoire : </th>
+                    <th>{{ permission.renovation ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th>Coach disponible : </th>
+                    <th>{{ permission.availableCoach ? 'Oui' : 'Non' }}</th>
+                </tr>
+                <tr>
+                    <th style="color:#B0413E; font-size: large">Lieux en activitée ? </th>
+                    <th style="font-size: large;">{{ permission.isActive ? 'Oui' : 'Non' }}</th>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+</div>
+{% endblock %}

@@ -25,6 +25,7 @@ class PermissionType extends AbstractType
             ->add('available_coach')
             ->add('street')
             ->add('branch_id')
+            ->add('isActive')
             ->add('submit', SubmitType::class, [
                 'attr' => array(
                     'class' => 'buttonSend'

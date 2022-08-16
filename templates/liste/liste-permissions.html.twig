@@ -4,9 +4,9 @@
 
 {% block body %}
 <h1>Liste des établissements</h1>
-    <div class="liste">
         {% for permission in permissions %}
-                <h2>Propiétaire :{{ permission.branchId }}</h2>
+            <div class="listePermissions" style="width: 80%;">
+                <h2>Propiétaire : {{ permission.branchId }} </a></h2>
                 <h3>{{ permission.street }}</h3>
             <ul>
                 <li>Envoyer newsletter : {{ permission.sendNewsletter ? 'Oui' : 'Non' }}</li>
@@ -20,7 +20,14 @@
                 <li>Restaurant sur place : {{ permission.restaurantSite ? 'Oui' : 'Non' }}</li>
                 <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
                 <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
+                <li style="color:#B0413E; font-size: large">Lieux en activitée ? {{ permission.isActive ? 'Oui' : 'Non' }} </li>
+                <br>
             </ul>
+                <button style="margin-bottom: 3%;" type="button" class="buttonSend"><a href="{{ path('app_permission', {'id': permission.id}) }}"> Accés au Bâtiment </a></button>
+                <div class="barreHorizontale"></div>
+                <br>
+
+            </div>
+
         {% endfor %}
-    </div>
 {% endblock %}

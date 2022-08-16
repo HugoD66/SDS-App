@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}SDS Layout{% endblock %}</title>
         <link rel="icon"
-              href="{{ asset('picture/logo-marque/dark-boot-icon.png') }}">
+              href="{{ asset('picture/logo-marque/favicon-round.png') }}">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -38,16 +38,17 @@
                     <a class="nav-link text-white" href="{{ path('app_login') }}">Connexion</a>
                     {% endif %}
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ path('app_liste_structure') }}">Liste des Structures</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Liste
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{{ path('app_liste_structure') }}">De nos Structures</a>
+                        <a class="dropdown-item" href="{{ path('app_liste_permissions') }}">De nos Bâtiments</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ path('app_liste_permissions') }}">Liste des établissements</a>
-                </li>
-                <li class="nav-item nav-item-user">
-                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <p class="text-white">Bonjour {{ app.user.name }}</p>
-                    {% endif %}
+                    <a class="nav-link text-white" href="#">Mon Compte</a>
                 </li>
             </ul>
         </div>
@@ -62,7 +63,7 @@
 
 
 
-<div class="container ">
+<div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">

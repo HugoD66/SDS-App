@@ -15,6 +15,7 @@ class ListePermissionsController extends AbstractController
     {
         $permission = $doctrine->getRepository(Permission::class)->findAll();
 
+
         return $this->render('liste/liste-permissions.html.twig', [
             'title' => 'SDS- Liste des établissements',
             'permissions' => $permission,

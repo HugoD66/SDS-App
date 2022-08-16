@@ -49,6 +49,9 @@ class Permission
     #[ORM\ManyToOne(inversedBy: 'permissions')]
     private ?Structure $branch_id = null;
 
+    #[ORM\Column]
+    private ?bool $isActive = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -194,6 +197,18 @@ class Permission
     public function setBranchId(?Structure $branch_id): self
     {
         $this->branch_id = $branch_id;
+
+        return $this;
+    }
+
+    public function isIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

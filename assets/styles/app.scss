@@ -129,8 +129,9 @@ h2 {
     border-radius: 15%;
   }
   p {
+    background-color: rgba(27, 42, 51, 0.18);
     font-family: $text;
-    width: 60%;
+    width: 65%;
     text-align: center;
     margin-bottom: 5%;
   }
@@ -163,7 +164,57 @@ h2 {
   }
 }
 .structureId {
+  width: 90%;
+  margin: auto;
   background-color: $logoColor;
+
+  h2 {
+    margin: 3%;
+    text-align: center;
+    text-decoration: underline 3px $logoEntrepriseColor;
+  }
+  h3 {
+    font-family: $titleFamily;
+    color: rgba(62,61,60,0.61);
+    font-weight: bolder;
+    margin: 5%;
+    margin-left: 10%;
+  }
+  li {
+    margin-top: 15px;
+    font-family: $text;
+  }
+}
+.listePermissions {
+  margin: auto;
+  background-color: $logoColor;
+  width: 90%;
+  background-image: url('../../public/picture/logo-marque/logo-without-back.png');
+  background-repeat: no-repeat;
+  background-position: right 4% bottom 55%;
+  table {
+    border: 1px $bootDark;
+    width: 60%;
+    thead {
+      background-color: $bootDark;
+      color: $logoColor;
+      font-family: $titleFamily;
+      font-size: 18px;
+     }
+    tbody {
+      font-family: $text;
+
+    }
+  }
+  button {
+    a {
+      text-decoration: none;
+      font-family: $buttonFamily;
+      color: $bootDark;
+      font-size: 22px;
+      border-color: $bootDark;
+    }
+  }
 }
 .liste {
   margin: auto;
@@ -241,10 +292,11 @@ h2 {
   background-color: $bootDark;
   height: 2px;
   border-radius: 90%;
+  margin: auto;
 }
 .buttonSend {
   margin: auto;
-  background-color: #598392;
+  background-color: rgba(89, 131, 146, 0.7);
   align-items: center;
   border: 2px solid #111;
   border-radius: 8px;
@@ -252,7 +304,7 @@ h2 {
   color: #111;
   cursor: pointer;
   display: flex;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   height: 48px;
   justify-content: center;
@@ -265,30 +317,30 @@ h2 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-}
-.buttonSend:after {
-  background-color: $bootDark;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 48px;
-  left: 0;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
-}
-.buttonSend:hover:after {
-  transform: translate(0, 0);
-}
-.buttonSend:active {
-  background-color: $bootDark;
-  outline: 0;
-}
-.buttonSend:hover {
-  outline: 0;
+  &:after {
+    background-color: $bootDark;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+  }
+  &:hover:after {
+    transform: translate(0, 0);
+  }
+  &:active {
+    background-color: $bootDark;
+    outline: 0;
+  }
+  &:hover {
+    outline: 0;
+  }
 }
 
 
