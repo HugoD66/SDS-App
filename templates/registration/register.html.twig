@@ -7,7 +7,7 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1>Enregistrement d'un nouvel admin</h1>
 <div class="formTwig">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
@@ -17,7 +17,7 @@
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="buttonSend">Register</button>
     {{ form_end(registrationForm) }}
 </div>
 {% endblock %}

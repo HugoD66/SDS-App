@@ -12041,8 +12041,29 @@ h2, .h2 {
   justify-content: center;
   flex-direction: column;
   background-color: #DEDEDE;
+  align-items: center;
   width: 95%;
   margin: auto;
+}
+.success .successExplain {
+  width: 55%;
+}
+.success .successPicture {
+  width: 50%;
+  margin-left: 8%;
+}
+.success .successButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 5%;
+}
+.success .successButton a {
+  text-decoration: none;
+  font-family: Consolas, sans-serif;
+  color: #212529;
+  font-size: 22px;
+  border-color: #212529;
 }
 .success p {
   text-align: center;
@@ -12062,6 +12083,9 @@ h2, .h2 {
   justify-content: center;
   align-items: center;
   width: 80%;
+}
+.formTwig .form_row {
+  width: 40%;
 }
 
 .barreHorizontale {

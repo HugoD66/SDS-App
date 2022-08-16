@@ -4,7 +4,16 @@
 
 {% block body %}
 <h1>Confirmation d'enregistrement</h1>
-    <div class="success">
-        Bravo, vous vous êtes enregistré.
+<div class="success">
+    <div class="successExplain">
+            <p>Vous avez enregistré un nouvel <b>administrateur</b>.<br></p>
+        </div>
+        <div class="successButton">
+            <button type="button" class="buttonSend"><a href="{{ path('app_add_permission') }}"> Ajout d'un Bâtiment </a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_add_structure') }}"> Ajout d'une Structure </a></button>
+        </div>
+    <div class="successPicture">
+        <img src="{{ asset('picture/etoffer-site/sansback/personnage-doigt-levant-un-haltère-isolé-sur-fond-blanc-créatif-210583163-removebg-preview.png') }}" alt="Image principale d'acceuil">
     </div>
+</div>
 {% endblock %}

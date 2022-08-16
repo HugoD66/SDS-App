@@ -66,6 +66,9 @@ class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'client_id', targetEntity: Structure::class)]
     private Collection $structures;
 
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
+
     public function __construct()
     {
         $this->structures = new ArrayCollection();
@@ -268,6 +271,18 @@ class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString()
     {
         return $this->client_name;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 
 }

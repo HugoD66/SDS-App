@@ -34,7 +34,7 @@ class AddPartenaireController extends AbstractController
                 } catch (FileException $e) {
                 }
                 $partenaire->setLogo($newFilename);
-
+                $partenaire->setRoles(['ROLE_PARTENAIRE']);
 
                 $partenaire = $form->getData();
 

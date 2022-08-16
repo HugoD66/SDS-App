@@ -265,8 +265,29 @@ h2 {
   justify-content: center;
   flex-direction: column;
   background-color: $logoColor;
+  align-items: center;
   width: 95%;
   margin: auto;
+  .successExplain {
+    width: 55%;
+  }
+  .successPicture {
+    width: 50%;
+    margin-left: 8%;
+  }
+  .successButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5%;
+    a {
+      text-decoration: none;
+      font-family: $buttonFamily;
+      color: $bootDark;
+      font-size: 22px;
+      border-color: $bootDark;
+    }
+  }
   p {
     text-align: center;
     margin: 10% auto;
@@ -286,6 +307,9 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 80%;
+  .form_row {
+    width: 40%;
+  }
 }
 .barreHorizontale {
   width: 80%;
