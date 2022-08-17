@@ -11,12 +11,9 @@
                 <div class="card">
                     <img src="{{ asset('picture/recipe-picture/' ~ structures.getLogoStructure()) }} " class="card-img-top" alt="Image de la structure">
                     <div class="barreHorizontale"></div>
-
                     <div class="card-body">
                         <h4><a class="card-title" href="{{ path('app_structure', {'id' : structures.id }) }}"> {{ structures.name }} </a></h4>
-
                         <ul>
-
                             <li>Email du gérant : {{ structures.email }}</li>
                             <li>Ville : {{ structures.city }}</li>
                             <li>Nom de la structure : {{ structures.name }}</li>
@@ -24,8 +21,17 @@
                         </ul>
                     </div>
                     <div class="card-footer" style="border: 2px solid black;">
-                        <a  href="{{ path('app_structure', {'id': structures.id}) }}" class="card-link">Lien de la structure</a>
+                        {% if app.user.roles == ['ROLE_ADMIN'] %}
 
+                            <a  href="{{ path('app_structure', {'id': structures.id}) }}" class="card-link">Lien de la structure</a>
+                            <a href="{{ path('app_update_structure', {'id': structures.id}) }}" class="card-link">Modification structure</a>
+
+
+
+                        {% else %}
+                                <a  href="{{ path('app_structure', {'id': structures.id}) }}" class="card-link">Lien de la structure</a>
+
+                        {% endif %}
                     </div>
                     <br>
                 </div>

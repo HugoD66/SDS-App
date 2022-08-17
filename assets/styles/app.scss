@@ -206,6 +206,13 @@ h2 {
     margin-top: 15px;
     font-family: $text;
   }
+  .buttons {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+
+  }
 }
 .listePermissions {
   margin: auto;

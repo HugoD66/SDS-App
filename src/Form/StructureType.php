@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Permission;
 use App\Entity\Structure;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -18,14 +20,23 @@ class StructureType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class)
-            ->add('install_id')
+            ->add('install_id', EntityType::class, [
+                'class' => Permission::class,
+                'expanded' => true,
+                'multiple' => true,
+                'choice_label' => function ($install_id) {
+                    return $install_id->getStreet();
+                }
+            ])
             ->add('active', CheckboxType::class, [
                 'required'   => false,
 
             ])
             ->add('city', TextType::class)
             ->add('name', TextType::class)
-            ->add('logoStructure', FileType::class)
+            ->add('logoStructure', FileType::class, [
+                "data_class" => null,
+            ])
             ->add('client_id')
             ->add('submit', SubmitType::class, [
                 'attr' => array(

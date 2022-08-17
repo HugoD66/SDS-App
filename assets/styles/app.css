@@ -11983,6 +11983,12 @@ h2, .h2 {
   margin-top: 15px;
   font-family: Roboto Mono, sans-serif;
 }
+.structureId .buttons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+}
 
 .listePermissions {
   margin: auto;

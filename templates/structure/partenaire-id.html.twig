@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+
+<div class="panel">
+    <h1>Votre sociétée : </h1>
+    <div class="tableEntreprise">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col" id="lienInterne1">Nom de la franchise :  </th>
+                <th scope="col" style="font-size: xxx-large"><u>{{ partenaire.clientName }}</u></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Entreprise active ? </th>
+                <th> {{ partenaire.active }}</th>
+            </tr>
+            <tr>
+                <th>Description rapide  </th>
+                <th> {{ partenaire.shortDescription }}</th>
+            </tr>
+            <tr>
+                <th>Descirption complète </th>
+                <th>{{ partenaire.fullDescription }}</th>
+            </tr>
+            <tr>
+                <th>Logo </th>
+                <th>    <img src="{{ asset('picture/recipe-picture/' ~ partenaire.getLogo()) }}" alt="Image du logo de l'entreprise">
+                </th>
+            </tr>
+            <tr>
+                <th>Site de l'entreprise</th>
+                <th>{{ partenaire.url }}</th>
+            </tr>
+            <tr>
+                <th>Politique de confidentialitée</th>
+                <th>  {{ partenaire.dpo }}</th>
+            </tr>
+            <tr>
+                <th>Numero du technicien </th>
+                <th><a href="tel:0606060606"> {{ partenaire.technicalContact }}</a></th>
+            </tr>
+            <tr>
+                <th>Numero du commercial</th>
+                <th> <a href="tel:0607070707">{{ partenaire.commercialContact }}</a></th>
+            </tr>
+            <tr>
+                <th>Nombre de structure possédées</th>
+                <th> <a href="{{ path('app_liste_structure') }}">{{ partenaire.structures.count }}</a></th>
+            </tr>
+            <tr>
+                <th>Nombre de bâtiments possédés en France</th>
+                <th> <a href="{{ path('app_liste_permissions') }}">{{ permission }}</a></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

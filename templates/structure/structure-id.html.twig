@@ -36,9 +36,20 @@
                     <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
                     <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
                 </ul>
-                <button type="button" class="buttonSend"><a href="{{ path('app_permission', {'id': permission.id}) }}">Accés au bâtiment</a></button>
-                <br>
+                {% if app.user.roles == ['ROLE_ADMIN'] %}
+                    <div class="buttons">
+                    <button type="button"
+                            class="buttonSend">
+                        <a href="{{ path('app_update_permission', {'id': permission.id}) }}"> Accés aux modifs. du Bâtiment
+                        </a>
+                    </button>
+                    <button type="button" class="buttonSend"><a href="{{ path('app_permission', {'id': permission.id}) }}">Accés au bâtiment</a></button>
+                    </div>
+                        <br>
+                    {% else %}
+                        <button type="button" class="buttonSend"><a href="{{ path('app_permission', {'id': permission.id}) }}">Accés au bâtiment</a></button>
 
+                {% endif %}
 
 
 

@@ -43,13 +43,14 @@ class PermissionController extends AbstractController
             $permissionUpdate = $form->getData();
             $entityManager->persist($permissionUpdate);
             $entityManager->flush();
-        }
+            return $this->redirectToRoute('app_liste_permissions');
 
+        }
 
 
         return $this->render('update/update-permission.html.twig', [
             'form' => $form->createView(),
-            'title' => 'SDS- Bâtiment de l\'entreprise',
+            'title' => 'SDS- Modification Bâtiment de l\'entreprise',
             'permissionUpdate' => $permissionUpdate,
             'permission' => $permission,
 

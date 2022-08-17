@@ -18,21 +18,17 @@
             <div class="changePassword">
                 <button type="button" class="buttonSend"><a href="{{ path('app_change_password') }}">Changement du mot de passe</a></button>
             </div>
-
             <h4>Ajout</h4>
-
             <div class="successButton">
                 <button type="button" class="buttonSend"><a href="{{ path('app_add_partenaire') }}"> Ajout d'une franchise </a></button>
-
-                <button type="button" class="buttonSend"><a href="{{ path('app_add_permission') }}"> Ajout d'un Bâtiment </a></button>
                 <button type="button" class="buttonSend"><a href="{{ path('app_add_structure') }}"> Ajout d'une Structure </a></button>
+                <button type="button" class="buttonSend"><a href="{{ path('app_add_permission') }}"> Ajout d'un Bâtiment </a></button>
             </div>
-
             <h4>Modification</h4>
         <div class="successButton">
-
+            <button type="button" class="buttonSend"><a href="{{ path('app_update_partenaire', {'id': 1}) }}">Modification de Garde la patate</a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure') }}"> Modification d'une structure </a></button>
             <button type="button" class="buttonSend"><a href="{{ path('app_liste_permissions') }}"> Modification d'un bâtiment </a></button>
-
 
 
 

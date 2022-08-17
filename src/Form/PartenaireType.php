@@ -42,7 +42,9 @@ class PartenaireType extends AbstractType
             ->add('short_description', TextType::class)
             ->add('full_description', TextType::class)
             ->add('logo', FileType::class, [
-                'label' => 'Photo de l\'entreprise '])
+                'label' => 'Photo de l\'entreprise ',
+                "data_class" => null,
+            ])
             ->add('url', TextType::class)
             ->add('dpo', TextType::class)
             ->add('technical_contact', TextType::class)
