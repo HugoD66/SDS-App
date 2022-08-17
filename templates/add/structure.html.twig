@@ -5,6 +5,7 @@
 {% block body %}
     <h1>Ajout d'une structure</h1>
 <div class="formTwig">
+
     {{ form_start(form) }}
     {{ form_errors(form) }}
     {{ form_row(form.email, {'label': 'Email du gérant'}) }}
@@ -16,5 +17,6 @@
     {{ form_row(form.install_id, {'label': 'Posséde déjas des bâtiments dans cette ville ? '}) }}
     {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
     {{ form_end(form) }}
+
 </div>
 {% endblock %}

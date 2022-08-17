@@ -4,30 +4,51 @@
 
 {% block body %}
 <h1>Liste des établissements</h1>
+
         {% for permission in permissions %}
             <div class="listePermissions" style="width: 80%;">
                 <h2>Propiétaire : {{ permission.branchId }} </a></h2>
                 <h3>{{ permission.street }}</h3>
-            <ul>
-                <li>Envoyer newsletter : {{ permission.sendNewsletter ? 'Oui' : 'Non' }}</li>
+                <ul>
+                    <li>Envoyer newsletter : {{ permission.sendNewsletter ? 'Oui' : 'Non' }}</li>
+                    <li>Vendre boissons : {{ permission.sellDrink ? 'Oui' : 'Non' }}</li>
+                    <li>Voir stats paiement	: {{ permission.paymentStats ? 'Oui' : 'Non' }}</li>
+                    <li>Ajouter membre : {{ permission.addMembers ? 'Oui' : 'Non' }}</li>
+                    <li>Recruter sallarier : {{ permission.recrutEmployee ? 'Oui' : 'Non' }}</li>
+                    <li>Site activé : {{ permission.activatedWebsite ? 'Oui' : 'Non' }}</li>
+                    <li>Recherche nouveau lieu : {{ permission.placeSearch ? 'Oui' : 'Non' }}</li>
+                    <li>Restaurant sur place : {{ permission.restaurantSite ? 'Oui' : 'Non' }}</li>
+                    <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
+                    <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
+                    <li style="color:#B0413E; font-size: large">Lieux en activitée ? {{ permission.isActive ? 'Oui' : 'Non' }} </li><br>
+                </ul>
 
-                <li>Vendre boissons : {{ permission.sellDrink ? 'Oui' : 'Non' }}</li>
-                <li>Voir stats paiement	: {{ permission.paymentStats ? 'Oui' : 'Non' }}</li>
-                <li>Ajouter membre : {{ permission.addMembers ? 'Oui' : 'Non' }}</li>
-                <li>Recruter sallarier : {{ permission.recrutEmployee ? 'Oui' : 'Non' }}</li>
-                <li>Site activé : {{ permission.activatedWebsite ? 'Oui' : 'Non' }}</li>
-                <li>Recherche nouveau lieu : {{ permission.placeSearch ? 'Oui' : 'Non' }}</li>
-                <li>Restaurant sur place : {{ permission.restaurantSite ? 'Oui' : 'Non' }}</li>
-                <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
-                <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
-                <li style="color:#B0413E; font-size: large">Lieux en activitée ? {{ permission.isActive ? 'Oui' : 'Non' }} </li>
-                <br>
-            </ul>
-                <button style="margin-bottom: 3%;" type="button" class="buttonSend"><a href="{{ path('app_permission', {'id': permission.id}) }}"> Accés au Bâtiment </a></button>
-                <div class="barreHorizontale"></div>
-                <br>
 
-            </div>
+
+                {% if app.user.roles == ['ROLE_ADMIN'] %}
+                    <button style="margin-bottom: 3%;"
+                            type="button"
+                            class="buttonSend">
+                        <a href="{{ path('app_update_permission', {'id': permission.id}) }}"> Accés aux modifs. du Bâtiment
+                        </a>
+                    </button>
+                    <div class="barreHorizontale"></div><br>
+                    </div>
+
+                {% else %}
+                    <button style="margin-bottom: 3%;"
+                            type="button"
+                            class="buttonSend">
+                        <a href="{{ path('app_permission', {'id': permission.id}) }}"> Accés au Bâtiment
+                        </a>
+                    </button>
+
+                    <div class="barreHorizontale"></div><br>
+                    </div>
+                {% endif %}
+
 
         {% endfor %}
+
+
 {% endblock %}

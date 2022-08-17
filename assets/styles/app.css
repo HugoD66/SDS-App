@@ -11785,6 +11785,14 @@ nav {
   width: 95%;
   margin: auto;
 }
+nav img {
+  width: 150px;
+  height: 140px;
+}
+nav img:hover {
+  transform: scale(1.3);
+  transition: all 0.3s ease-in-out;
+}
 nav button {
   height: 70px;
   width: 70px;
@@ -11798,6 +11806,8 @@ nav li {
   color: #DEDEDE;
 }
 nav li:hover {
+  transform: scale(1.3);
+  transition: all 0.3s ease-in-out;
   text-decoration: underline;
 }
 
@@ -11901,14 +11911,24 @@ h2, .h2 {
   margin: auto;
   flex-direction: column;
 }
+.panel button {
+  border: 4px solid #212529;
+}
+.panel button a {
+  text-decoration: none;
+  color: #212529;
+  font-family: Consolas, sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+}
 .panel img {
   width: 500px;
   height: 200px;
-  margin: 2% auto auto;
   border-radius: 15%;
+  margin: 2% auto 8%;
 }
 .panel p {
-  background-color: rgba(27, 42, 51, 0.18);
+  background-color: rgba(73, 130, 163, 0.33);
   font-family: Roboto Mono, sans-serif;
   width: 65%;
   text-align: center;
@@ -11928,13 +11948,14 @@ h2, .h2 {
   margin: auto;
   width: 80%;
   text-align: center;
-  border: 3px solid #212529;
+  border: 3px solid rgba(73, 106, 123, 0.96);
   font-family: Roboto Mono, sans-serif;
 }
 .panel .tableEntreprise table thead {
   font-size: x-large;
   height: 50px;
   line-height: 50px;
+  color: rgba(73, 106, 123, 0.77);
 }
 .panel .tableEntreprise table img {
   width: 300px;
@@ -12090,7 +12111,7 @@ h2, .h2 {
 
 .barreHorizontale {
   width: 80%;
-  background-color: #212529;
+  background-color: rgba(73, 106, 123, 0.96);
   height: 2px;
   border-radius: 90%;
   margin: auto;
@@ -12098,7 +12119,7 @@ h2, .h2 {
 
 .buttonSend {
   margin: auto;
-  background-color: rgba(89, 131, 146, 0.7);
+  background-color: rgba(96, 145, 181, 0.77);
   align-items: center;
   border: 2px solid #111;
   border-radius: 8px;

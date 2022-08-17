@@ -8,6 +8,15 @@ body {
 nav {
   width: 95%;
   margin: auto;
+  img {
+    width: 150px;
+    height: 140px;
+    &:hover {
+      transform: scale(1.3);
+      transition: all 0.3s ease-in-out;
+    }
+
+  }
   button {
     height: 70px;
     width: 70px;
@@ -22,6 +31,8 @@ nav {
     font-size: 15px;
     color: $logoColor;
     &:hover {
+      transform: scale(1.3);
+      transition: all 0.3s ease-in-out;
       text-decoration: underline ;
     }
   }
@@ -122,14 +133,24 @@ h2 {
   width: 90%;
   margin: auto;
   flex-direction: column;
+  button {
+    border: 4px solid $bootDark;
+    a {
+      text-decoration: none;
+      color: $bootDark;
+      font-family: $buttonFamily;
+      font-size: 27px;
+      font-weight: bold;
+    }
+  }
   img {
     width: 500px;
     height: 200px;
-    margin: 2% auto auto;
     border-radius: 15%;
+    margin: 2% auto 8%;
   }
   p {
-    background-color: rgba(27, 42, 51, 0.18);
+    background-color: rgba(73, 130, 163, 0.33);
     font-family: $text;
     width: 65%;
     text-align: center;
@@ -149,12 +170,13 @@ h2 {
       margin: auto;
       width: 80%;
       text-align: center;
-      border: 3px solid $bootDark;
+      border: 3px solid $aze;
       font-family: $text;
       thead {
         font-size: x-large;
         height : 50px;
         line-height: 50px;
+        color: rgba(73, 106, 123, 0.77);
       }
       img {
         width: 300px;
@@ -313,14 +335,14 @@ h2 {
 }
 .barreHorizontale {
   width: 80%;
-  background-color: $bootDark;
+  background-color: $aze;
   height: 2px;
   border-radius: 90%;
   margin: auto;
 }
 .buttonSend {
   margin: auto;
-  background-color: rgba(89, 131, 146, 0.7);
+  background-color: rgba(96, 145, 181, 0.77);
   align-items: center;
   border: 2px solid #111;
   border-radius: 8px;

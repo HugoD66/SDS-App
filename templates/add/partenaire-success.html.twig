@@ -3,21 +3,21 @@
 {% block title %}{{title}}{% endblock %}
 
 {% block body %}
-    <h1>Bravo</h1>
+<h1>Bravo</h1>
 <div class="success">
     <div class="successExplain">
-    <p>Vous avez enregistré un nouveau <b>partenaire</b>. <br>
-    Il faut maintenant qu'il se choisisse un nouveau mot de passe pour finaliser son inscription, puis qu'il confirme sont addresse email!
-        <br><br>
-        Vous pouvez de votre côté ajouter les <u>structures</u> et <u>bâtiments</u> qu'il possède, en réglant leurs <u>permissions</u>.
-    </p>
+        <p>Vous avez enregistré un nouveau <b>partenaire</b>. <br>
+            Il faut maintenant qu'il se choisisse un nouveau mot de passe pour finaliser son inscription, puis qu'il confirme sont addresse email!
+            <br><br>
+            Vous pouvez de votre côté ajouter les <u>structures</u> et <u>bâtiments</u> qu'il possède, en réglant leurs <u>permissions</u>.
+        </p>
     </div>
     <div class="successButton">
         <button type="button" class="buttonSend"><a href="{{ path('app_add_permission') }}"> Ajout d'un Bâtiment </a></button>
         <button type="button" class="buttonSend"><a href="{{ path('app_add_structure') }}"> Ajout d'une Structure </a></button>
     </div>
     <div class="successPicture">
-    <img src="{{ asset('picture/etoffer-site/sansback/personnage-doigt-levant-un-haltère-isolé-sur-fond-blanc-créatif-210583163-removebg-preview.png') }}" alt="Image principale d'acceuil">
+        <img src="{{ asset('picture/etoffer-site/sansback/personnage-doigt-levant-un-haltère-isolé-sur-fond-blanc-créatif-210583163-removebg-preview.png') }}" alt="Image principale d'acceuil">
     </div>
 </div>
 {% endblock %}

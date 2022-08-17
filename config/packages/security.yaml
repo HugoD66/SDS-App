@@ -2,13 +2,23 @@ security:
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        App\Entity\Admin:
+            algorithm: auto
+        App\Entity\Partenaire:
+            algorithm: auto
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
-        # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
+                class: App\Entity\Admin
+                property: email
+        app_partenaire_provider:
+            entity:
                 class: App\Entity\Partenaire
-                property: client_name
+                property: email
+        all_users:
+            chain:
+                providers: ['app_user_provider', 'app_partenaire_provider']
         # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
@@ -31,13 +41,18 @@ security:
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
-
+    role_hierarchy:
+        ROLE_PERMISSION:    ROLE_USER
+        ROLE_PARTENAIRE:    ROLE_PERMISSION
+        ROLE_ADMIN:    ROLE_PARTENAIRE
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/add_partenaire, roles: ROLE_ADMIN }
+        # - { path: ^/add_partenaire, roles: ROLE_ADMIN }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/permissions, role: ROLE_USER }
 
 
 when@test:

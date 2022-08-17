@@ -44,10 +44,10 @@ class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     #[Assert\Image(
-        minWidth: 200,
+        minWidth: 100,
         maxWidth: 800,
         maxHeight: 800,
-        minHeight: 200,
+        minHeight: 100,
     )]
     private ?string $logo = null;
 

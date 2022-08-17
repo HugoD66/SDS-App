@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    <h1>Mise à jour du Bâtiment</h1>
+    <img style=" display:flex; align-items: center; border-radius: 90%; max-height: 8%; max-width: 35%; margin: 3% auto;"
+         src="{{ asset('picture/recipe-picture/' ~ permission.branchId.logoStructure) }}"
+         alt="Logo de la structure">
+    <div class="structureId"><br>
+        <h3><u>Adresse</u> : {{ permission.street }}</h3>
+        <div class="listePermissions">
+            <div class="barreHorizontale"></div>
+
+            {% if app.user.roles == ['ROLE_ADMIN'] %}
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <table class="table"><br>
+                    {{ form_row(form.street, { 'label': 'Changement de la rue : ' })  }}
+                    {{ form_row(form.branch_id, { 'label': 'Appartient toujours à la structure : ' })  }}
+                    <br>
+                    <thead>
+                    <tr>
+                        <th scope="col">Propriétées disponibles</th>
+                        <th scope="col">Permission </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>Envoyer newsletter :</th>
+                        <th>{{ form_row(form.send_newsletter, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Vendre boissons : </th>
+                        <th>{{ form_row(form.sell_drink, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Voir stats paiement	: </th>
+                        <th>{{ form_row(form.payment_stats, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Ajouter membre : </th>
+                        <th>{{ form_row(form.add_members, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Recruter sallarier : </th>
+                        <th>{{ form_row(form.recrut_employee, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Site activé : </th>
+                        <th>{{ form_row(form.activated_website, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Recherche nouveau lieu : </th>
+                        <th>{{ form_row(form.place_search, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Restaurant sur place : </th>
+                        <th>{{ form_row(form.restaurant_site, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Renauvation à pervoire : </th>
+                        <th>{{ form_row(form.renovation, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th>Coach disponible : </th>
+                        <th>{{ form_row(form.available_coach, { 'label': ' ' }) }}</th>
+                    </tr>
+                    <tr>
+                        <th style="color:#B0413E; font-size: large">Lieux en activitée ? </th>
+                        <th style="font-size: large;">{{ form_row(form.isActive, { 'label': ' ' }) }}</th>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+
+                {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
+                {{ form_end(form) }}
+
+                {% endif %}
+            <br>
+        </div>
+    </div>
+{% endblock %}
