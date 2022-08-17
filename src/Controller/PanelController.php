@@ -16,7 +16,7 @@ class PanelController extends AbstractController
     public function index(ManagerRegistry $doctrine): Response
     {
         $user = $this->getUser();
-
+        $partenaireUser = $this->getUser(Partenaire::class);
 
         $structure = $doctrine->getRepository(Structure::class)->findAll();
         $permissions = $doctrine->getRepository(Permission::class)->countPermission();

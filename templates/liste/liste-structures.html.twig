@@ -22,15 +22,10 @@
                     </div>
                     <div class="card-footer" style="border: 2px solid black;">
                         {% if app.user.roles == ['ROLE_ADMIN'] %}
-
                             <a  href="{{ path('app_structure', {'id': structures.id}) }}" class="card-link">Lien de la structure</a>
                             <a href="{{ path('app_update_structure', {'id': structures.id}) }}" class="card-link">Modification structure</a>
-
-
-
                         {% else %}
                                 <a  href="{{ path('app_structure', {'id': structures.id}) }}" class="card-link">Lien de la structure</a>
-
                         {% endif %}
                     </div>
                     <br>

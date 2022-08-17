@@ -17,8 +17,7 @@
                 <br>
             </ul>
     </div>
-    <h2 style="color:#DEDEDE; text-align: center;">Bâtiments que posséde la structure: </h2>
-
+    <h2 style="color:#DEDEDE; text-align: center; margin-top: 4%;">Bâtiments que posséde la structure: </h2>
     <div class="structureId">
     {% for permission in permissions %}
             {% if permission.branchId == structure %}
@@ -48,12 +47,8 @@
                         <br>
                     {% else %}
                         <button type="button" class="buttonSend"><a href="{{ path('app_permission', {'id': permission.id}) }}">Accés au bâtiment</a></button>
-
+                        <br>
                 {% endif %}
-
-
-
-
                 <div class="barreHorizontale"></div>
                 <br>
             </div>

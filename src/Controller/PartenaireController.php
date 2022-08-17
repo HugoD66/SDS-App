@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -36,7 +37,12 @@ class PartenaireController extends AbstractController
 
 
     #[Route('/partenaire/update/{id}', name: 'app_update_partenaire')]
-    public function update(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger, int $id, EntityManagerInterface $entityManager): Response
+    public function update(Request $request,
+                           ManagerRegistry $doctrine,
+                           SluggerInterface $slugger,
+                           int $id,
+                           EntityManagerInterface $entityManager,
+                           UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $user = $this->getUser();
 
@@ -50,6 +56,7 @@ class PartenaireController extends AbstractController
         $form = $this->createForm(PartenaireType::class, $partenaireUpdate);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            //picture
             $logo = $form->get('logo')->getData();
             if ($logo) {
                 $originalFilename = pathinfo($logo->getClientOriginalName(), PATHINFO_FILENAME);
@@ -62,12 +69,20 @@ class PartenaireController extends AbstractController
                     );
                 } catch (FileException $e) {
                 }
-                $partenaireUpdate->setLogoStructure($newFilename);
+                $partenaireUpdate->setLogo($newFilename);
                 $partenaireUpdate = $form->getData();
             }
+            //password
+            $partenaireUpdate->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $partenaireUpdate,
+                    $form->get('password')->getData()
+                )
+            );
+            //flush
             $entityManager->persist($partenaireUpdate);
             $entityManager->flush();
-            return $this->redirectToRoute('app_partenaire');
+            return $this->redirectToRoute('app_home');
         }
         return $this->render('update/update-partenaire.html.twig', [
             'form' => $form->createView(),
@@ -75,6 +90,7 @@ class PartenaireController extends AbstractController
             'partenaireUpdate' => $partenaireUpdate,
             'structure' => $structure,
             'permissions' => $permissions,
+            'user' => $user,
         ]);
     }
 

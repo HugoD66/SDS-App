@@ -21,7 +21,7 @@ class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 180, unique: true)]
+    #[ORM\Column(length: 180)]
     private ?string $client_name = null;
 
     #[ORM\Column]
@@ -66,7 +66,7 @@ class Partenaire implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'client_id', targetEntity: Structure::class)]
     private Collection $structures;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $email = null;
 
     public function __construct()
