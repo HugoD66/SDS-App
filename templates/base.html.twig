@@ -10,6 +10,19 @@
         {% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            <script>
+                function showConfirm() {
+                    var confirmation = confirm("Voulez vous faire cette action?");
+                    if (confirmation === true) {
+                        alert("vous avez cliqué OK");
+                        return true;
+                    } else {
+                        alert("Opération annulée");
+                        return false;
+                    }
+                }
+            </script>
+
         {% endblock %}
     </head>
     <body>
@@ -38,19 +51,11 @@
                         <a class="dropdown-item" href="{{ path('app_liste_permissions') }}">De nos Bâtiments</a>
                     </div>
                 </li>
-
-
-
-
-
-
                 <li class="nav-item">
-                    {% if app.user %}
-                    <a class="nav-link text-white" href="{{ path('app_logout') }}">Deconnexion</a>
+                {% if app.user %}
+                <a class="nav-link text-white" href="{{ path('app_logout') }}">Deconnexion</a>
+                </li>
                     {% else %}
-
-
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Connexion
@@ -59,30 +64,9 @@
                         <a class="dropdown-item" href="{{ path('app_login') }}">Administrateur (L’équipe tech.)</a>
                         <a class="dropdown-item" href="{{ path('app_login_partenaire') }}">Client (Gérants des franchises)</a>
                         <a class="dropdown-item" href="#">Directeur (Gérants des bâtiments)</a>
-
                     </div>
                 </li>
-
-
-
-
-
-
-                    {% endif %}
-                </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
+                {% endif %}
                 <li class="nav-item">
                     {% if app.user %}
                         <a class="nav-link text-white" href="{{ path('app_profil', { 'id' : app.user.id}) }}">Mon compte</a>

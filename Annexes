@@ -17,3 +17,66 @@ Bundles utilisés:
     String (The String component provides a single object-oriented API to work with three "unit systems" of strings: bytes, code points and grapheme clusters.)
     string-extra
 GITHUB : https://github.com/HugoD66/SDS-App.git
+
+
+.search-input {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px black;
+    input {
+      height: 55px;
+      width: 100%;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      padding: 0 60px 0 20px;
+      font-size: 18px;
+      font-family: $text;
+      box-shadow: 0px 1px 5px black;
+    }
+    .icon {
+      height: 55px;
+      width: 55px;
+      line-height: 55px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-align: center;
+      color: green;
+      cursor: pointer;
+    }
+    .autocom-box {
+      padding: 10px 8px;
+      display: none;
+      li {
+        list-style: none;
+        padding: 8px 12px;
+        width: 100%;
+        cursor: default;
+        border-radius: 3px;
+        display: none;
+        &:hover {
+          background: #DDDDDD;
+        }
+      }
+    }
+  }
+}
+.search-input .autocom-box {
+  opacity: 0;
+  overflow-y: auto;
+  pointer-events: none;
+  max-height: 280px;
+  padding: 0px;
+}
+
+.search-input.active .autocom-box.active {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+
+
+}
+.search-input.active .autocom-box.active li.active {
+  display: block;
+}

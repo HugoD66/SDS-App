@@ -12,7 +12,8 @@
         </p>
     {% if app.user %}
         <button style="width: 250px; height: 130px;" type="button" class="buttonSend">
-            <a href="{{ path('app_profil', { 'id': user.id }) }}">Accés à mon Compte
+            <a href="{{ path('app_profil', { 'id': user.id }) }}"
+               >Accés à mon Compte
             </a>
         </button><br>
         {% else %}

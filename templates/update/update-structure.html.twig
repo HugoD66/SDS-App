@@ -22,7 +22,9 @@
     {{ form_row(form.name, {'label': 'Nom de la structure:'}) }}
     {{ form_row(form.logoStructure, {'label': 'Logo de la structure:'}) }}
     {{ form_row(form.install_id, {'label': 'Posséde déjas des bâtiments dans cette ville ? '}) }}
-    {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
+    <div class="formSubmit" onClick="showConfirm()">
+        {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+    </div>
     {{ form_end(form) }}
 </div>
 {% endblock %}

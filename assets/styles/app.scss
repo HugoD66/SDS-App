@@ -219,6 +219,15 @@ h2 {
   background-image: url('../../public/picture/logo-marque/logo-without-back.png');
   background-repeat: no-repeat;
   background-position: right 4% bottom 55%;
+  h2 {
+    margin-left: 2%;
+  }
+  h3 {
+    margin-left: 5%;
+  }
+  ul {
+    margin-left: 8%;
+  }
   table {
     border: 1px $bootDark;
     width: 60%;
@@ -356,10 +365,16 @@ h2 {
   button {
     margin: 15% auto auto;
   }
+  label {
+    display: block;
+    width: 150px;
+    float: left;
+  }
   input {
     width: 50%;
     margin: auto;
     height: 13%;
+    align-items: center
   }
   .username {
     margin: auto auto 15%;
@@ -429,74 +444,65 @@ h2 {
 }
 
 
-
-.toggler-wrapper.style-27 {
-  width: 54px;
-  height: 30px;
+.wrapper {
+  max-width: 450px;
+  margin: 150px auto;
 }
-
-.toggler-wrapper.style-27 input[type="checkbox"]:checked+.toggler-slider .toggler-knob:before {
-  left: -100%;
-}
-
-.toggler-wrapper.style-27 input[type="checkbox"]:checked+.toggler-slider .toggler-knob:after {
-  right: 3px;
-}
-
-.toggler-wrapper.style-27 .toggler-knob {
+.wrapper .search-input {
+  background: #DDDDDD;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px white;
 }
-
-.toggler-wrapper.style-27 .toggler-knob:before {
-  content: 'No';
+.search-input input {
+  height: 55px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0 60px 0 20px;
+  font-size: 18px;
+  box-shadow: 0px 1px 5px black;
+}
+.search-input .icon {
+  height: 55px;
+  width: 55px;
+  line-height: 55px;
   position: absolute;
-  width: calc(30px - 6px);
-  height: calc(30px - 6px);
-  border-radius: 50%;
-  left: 3px;
-  top: 3px;
-  background-color: #fff;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 75%;
-  font-weight: 500;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 20px;
+  color: green;
+  cursor: pointer;
 }
-
-.toggler-wrapper.style-27 .toggler-knob:after {
-  content: 'Yes';
-  position: absolute;
-  width: calc(30px - 6px);
-  height: calc(30px - 6px);
-  border-radius: 50%;
-  right: -100%;
-  top: 3px;
-  background-color: #fff;
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  font-size: 75%;
-  font-weight: 500;
+.search-input .autocom-box {
+  padding: 0px;
+  max-height: 280px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
 }
+.search-input.active .autocom-box {
+  padding: 10px 8px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.autocom-box li {
+  list-style: none;
+  padding: 8px 12px;
+  width: 100%;
+  cursor: default;
+  border-radius: 3px;
+  display: none;
+}
+.search-input.active .autocom-box li {
+  display: block;
 
+}
+.autocom-box li:hover {
+  background: #AAAAAA;
+}
 
 @media only screen and (min-width: 1200px) {
   .card {
@@ -519,6 +525,6 @@ h2 {
 @media screen and (min-width: 700px) {
   .loginForm {
     width: 85%;
-    height: 50vh;
+    height: 60vh;
   }
 }

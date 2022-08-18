@@ -4,17 +4,12 @@
 
 {% block body %}
 <h1>Connexion Franchise</h1>
-    <div class="loginForm">
-        <form class="form_login" action="{{ path('app_login_partenaire') }}" method="post">
-            {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
-            {% if app.user %}
-                <div class="mb-3">
-                    Vous êtes connecté en tant que  {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se deconnecter</a>
-                </div>
-            {% endif %}
-                <div class="username">
+
+            <div class="loginForm">
+
+                <form class="form_login" action="{{ path('app_login_partenaire') }}" method="post"><br>
+
+            <div class="username">
                     <label for="inputEmail">Email</label>
                     <input type="email"  name="email" id="inputEmail" class="form-control" required autofocus>
                 </div>
@@ -37,6 +32,15 @@
                 </div>
             #}
             <button class="buttonSend" type="submit"> Se Connecter </button>
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    {% if app.user %}
+                        <div class="mb-3">
+                            Vous êtes connecté en tant que  {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se deconnecter</a>
+                        </div>
+                    {% endif %}
+            <br>
         </form>
     </div>
 {% endblock %}

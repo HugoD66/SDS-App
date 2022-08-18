@@ -22,7 +22,9 @@
     {{ form_row(form.street, { 'label': 'Rue du bâtiment : ' })  }}
     {{ form_row(form.branch_id, { 'label': 'Appartient à la structure : ' })  }}
     {{ form_row(form.isActive, { 'label': 'Bâtiment déjas en activitée ? '}) }}
-    {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
+    <div class="formSubmit" onClick="showConfirm()">
+    {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+    </div>
     {{ form_end(form) }}
 
 </div>

@@ -72,12 +72,10 @@
                     </tr>
                     </tbody>
                 </table>
-
-
-
-                {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
+                <div class="formSubmit" onClick="return showConfirm()">
+                    {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+                </div>
                 {{ form_end(form) }}
-
                 {% endif %}
             <br>
         </div>

@@ -19,7 +19,9 @@
         {{ form_row(form.dpo, { 'label' : 'Protection des données personnelles'}) }}
         {{ form_row(form.technical_contact, { 'label' : 'Contact du technicien'}) }}
         {{ form_row(form.commercial_contact, { 'label' : 'Contact du commercial'}) }}
-        {{ form_row(form.submit, { 'label': 'Envoyer' }) }}
+        <div class="formSubmit" onClick="showConfirm()">
+            {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+        </div>
         {{ form_end(form) }}
 
     </div>

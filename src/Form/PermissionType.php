@@ -28,7 +28,7 @@ class PermissionType extends AbstractType
             ->add('isActive')
             ->add('submit', SubmitType::class, [
                 'attr' => array(
-                    'class' => 'buttonSend'
+                    'class' => 'buttonSend',
                 )
             ])
         ;
