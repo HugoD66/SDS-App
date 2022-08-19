@@ -48,7 +48,7 @@ class LoginPartenaireAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-         return new RedirectResponse($this->urlGenerator->generate('app_login_partenaire'));
+         return new RedirectResponse($this->urlGenerator->generate('app_liste_structure'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

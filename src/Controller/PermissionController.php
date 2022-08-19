@@ -57,6 +57,20 @@ class PermissionController extends AbstractController
         ]);
     }
 
+    #[Route('/permission/delete/{id}', name: 'app_delete_permission')]
+    public function remove(Request $request, ManagerRegistry $doctrine, int $id): Response
+    {
+        $permission = $doctrine->getRepository(Permission::class)->find($id);
+        $entityManager = $doctrine->getManager();
+        $permissionRemove = $entityManager->getRepository(Permission::class)->find($id);
+
+
+        $entityManager->remove($permissionRemove);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_liste_permissions');
+
+    }
+
 
 
 

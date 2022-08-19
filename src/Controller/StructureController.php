@@ -77,4 +77,16 @@ class StructureController extends AbstractController
         ]);
     }
 
+
+    #[Route('/structure/delete/{id}', name: 'app_delete_structure')]
+    public function delete(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger, int $id, EntityManagerInterface $entityManager): Response
+    {
+        $structureRemove = $entityManager->getRepository(Structure::class)->find($id);
+
+
+        $entityManager->remove($structureRemove);
+        $entityManager->flush();
+        return $this->redirectToRoute('app_liste_structure');
+
+    }
 }

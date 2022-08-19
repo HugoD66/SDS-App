@@ -17,7 +17,7 @@ class ChangePasswordType extends AbstractType
     {
         $builder
             ->add('plainPassword', PasswordType::class, [
-                'label' => 'Nouveau mot de passe Mot de passe',
+                'label' => 'Nouveau mot de passe',
                 'mapped' => false,
                 'attr' => [
                     'autocomplete' => 'new-password',
@@ -47,6 +47,7 @@ class ChangePasswordType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Admin::class,
+
         ]);
     }
 }

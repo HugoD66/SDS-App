@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Partenaire;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,13 +16,16 @@ class LoginPartenaireController extends AbstractController
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
+
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
 
         return $this->render('registration/login-partenaire.html.twig', [
             'last_username' => $lastUsername,
-            'error' => $error
+            'error' => $error,
+            'partenaire' => 'app_partenaire_provider',
+
         ]);
     }
 

@@ -18,6 +18,24 @@ Bundles utilisés:
     string-extra
 GITHUB : https://github.com/HugoD66/SDS-App.git
 
+AFAIRRRR ;;;;;
+
+A noter que le choix des permissions est disponible aussi directement depuis la page
+d’un partenaire. On les appelle “permissions globales”
+Il s’agira alors de permissions par défaut pour les structures enfants.
+→ En gros, si on ajoute une structure alors automatiquement les droits de la structure
+Guide ECF 5
+seront ceux fixés dans la page du partenaire. Mais chaque permission de la structure
+restera activable ou désactivable.
+
+
+;;;;;;;;;;;;;
+
+
+
+
+
+
 
 .search-input {
     width: 100%;
@@ -80,3 +98,47 @@ GITHUB : https://github.com/HugoD66/SDS-App.git
 .search-input.active .autocom-box.active li.active {
   display: block;
 }
+
+
+USERCHECKER :
+
+
+<?php
+namespace App\Security;
+
+use App\Entity\Partenaire as AppPartenaire;
+use Symfony\Component\Security\Core\Exception\AccountExpiredException;
+
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
+use Symfony\Component\Security\Core\User\UserCheckerInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+class UserChecker implements UserCheckerInterface
+{
+    public function checkPreAuth(UserInterface $user)
+    {
+        if (!$user instanceof AppPartenaire) {
+            return;
+        }
+        if (!$user->isActive()) {
+            throw new CustomUserMessageAuthenticationException(
+                'Inactive account cannot log in!'
+            );
+        }
+    }
+    public function checkPostAuth(UserInterface $user)
+    {
+        if (!$user instanceof AppPartenaire) {
+            return;
+        }
+
+        $this->checkPreAuth($user);
+    }
+}
+
+
+
+
+
+
+            user_checker: App\Security\UserChecker

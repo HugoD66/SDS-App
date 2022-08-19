@@ -187,7 +187,6 @@ h2 {
   width: 90%;
   margin: auto;
   background-color: $logoColor;
-
   h2 {
     margin: 3%;
     text-align: center;
@@ -203,6 +202,17 @@ h2 {
   li {
     margin-top: 15px;
     font-family: $text;
+    margin-left: 4%;
+  }
+  .buttonModif {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    button {
+      font-weight: bold;
+      font-size: 22px;
+    }
   }
   .buttons {
     display: flex;
@@ -210,6 +220,11 @@ h2 {
     justify-content: center;
     flex-direction: row;
 
+  }
+  a {
+    text-decoration: none;
+    color: $bootDark;
+    font-family: $buttonFamily;
   }
 }
 .listePermissions {
@@ -304,12 +319,47 @@ h2 {
   align-items: center;
   width: 95%;
   margin: auto;
+  .successButton {
+    border: 1px solid $bootDark;
+
+  }
   .successExplain {
     width: 55%;
   }
   .successPicture {
     width: 50%;
     margin-left: 8%;
+  }
+  li {
+    font-family: $text;
+  }
+  h4 {
+    margin-right: 60%;
+    font-family: $titleFamily;
+    font-size: xx-large;
+  }
+  h5 {
+    margin: 3%;
+    font-family: $text;
+  }
+  ul {
+    margin: 3%;
+  }
+  .identifiants {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    border: 1px solid $bootDark;
+  }
+  button {
+    margin: 3%;
+    a {
+      text-decoration: none;
+      font-family: $buttonFamily;
+      color: $bootDark;
+      font-size: 22px;
+      border-color: $bootDark;
+    }
   }
   .successButton {
     display: flex;
@@ -326,15 +376,14 @@ h2 {
   }
   p {
     text-align: center;
-    margin: 10% auto;
+    margin: 7% auto;
     font-family: $text;
   }
   img {
-    width: 80%;
-    height: 40%;
+    width: 70%;
+    height: 35%;
     margin: auto auto 10%;
   }
-
 }
 .formTwig {
   background-color: $logoColor;
@@ -343,8 +392,9 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 80%;
-   .form_row {
-    width: 40%;
+  font-family: $text;
+  .form_row {
+      width: 40%;
   }
 }
 .loginForm {
@@ -464,7 +514,7 @@ h2 {
   font-size: 18px;
   box-shadow: 0px 1px 5px black;
 }
-.search-input .icon {
+.search-input button {
   height: 55px;
   width: 55px;
   line-height: 55px;
@@ -504,6 +554,8 @@ h2 {
   background: #AAAAAA;
 }
 
+
+
 @media only screen and (min-width: 1200px) {
   .card {
     max-width: 40%;
@@ -526,5 +578,66 @@ h2 {
   .loginForm {
     width: 85%;
     height: 60vh;
+  }
+}
+
+
+.checkboxStyle {
+  .toggler-wrapper {
+    display: block;
+    width: 45px;
+    height: 25px;
+    cursor: pointer;
+    position: relative;
+  }
+  .toggler-wrapper input[type="checkbox"] {
+    display: none;
+  }
+  .toggler-wrapper input[type="checkbox"]:checked+.toggler-slider {
+    background-color: #44cc66;
+  }
+  .toggler-wrapper .toggler-slider {
+    background-color: #ccc;
+    position: absolute;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  .toggler-wrapper .toggler-knob {
+    position: absolute;
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+  }
+  .toggler-wrapper.style-13 input[type="checkbox"]:checked+.toggler-slider .toggler-knob {
+    left: calc(100% - 19px - 3px);
+  }
+  .toggler-wrapper.style-13 input[type="checkbox"]:checked+.toggler-slider .toggler-knob:after {
+    content: 'On';
+  }
+  .toggler-wrapper.style-13 .toggler-knob {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 6px rgba(153, 153, 153, 0.75);
+    box-shadow: 0 2px 6px rgba(153, 153, 153, 0.75);
+  }
+  .toggler-wrapper.style-13 .toggler-knob:after {
+    content: 'Off';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 65%;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.7;
   }
 }

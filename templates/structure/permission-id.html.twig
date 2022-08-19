@@ -66,8 +66,17 @@
                 </tr>
             </tbody>
         </table>
-
-
+        {% if path('app_structure', { 'id' : permission.id }) == true %}
+            {% if app.user.roles == ['ROLE_ADMIN'] %}
+            <div class="buttons">
+                <button type="button"
+                        class="buttonSend">
+                    <a href="{{ path('app_update_permission', {'id': permission.id}) }}"> Accés aux modifs. du Bâtiment
+                    </a>
+                </button>
+            </div>
+            {% endif %}
+        {% endif %}
         <br>
     </div>
 </div>

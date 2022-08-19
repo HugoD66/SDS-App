@@ -11983,12 +11983,28 @@ h2, .h2 {
 .structureId li {
   margin-top: 15px;
   font-family: Roboto Mono, sans-serif;
+  margin-left: 4%;
+}
+.structureId .buttonModif {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.structureId .buttonModif button {
+  font-weight: bold;
+  font-size: 22px;
 }
 .structureId .buttons {
   display: flex;
   align-items: flex-start;
   justify-content: center;
   flex-direction: row;
+}
+.structureId a {
+  text-decoration: none;
+  color: #212529;
+  font-family: Consolas, sans-serif;
 }
 
 .listePermissions {
@@ -12082,12 +12098,46 @@ h2, .h2 {
   width: 95%;
   margin: auto;
 }
+.success .successButton {
+  border: 1px solid #212529;
+}
 .success .successExplain {
   width: 55%;
 }
 .success .successPicture {
   width: 50%;
   margin-left: 8%;
+}
+.success li {
+  font-family: Roboto Mono, sans-serif;
+}
+.success h4, .success .h4 {
+  margin-right: 60%;
+  font-family: Goudy Old Style, serif;
+  font-size: xx-large;
+}
+.success h5, .success .h5 {
+  margin: 3%;
+  font-family: Roboto Mono, sans-serif;
+}
+.success ul {
+  margin: 3%;
+}
+.success .identifiants {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  border: 1px solid #212529;
+}
+.success button {
+  margin: 3%;
+}
+.success button a {
+  text-decoration: none;
+  font-family: Consolas, sans-serif;
+  color: #212529;
+  font-size: 22px;
+  border-color: #212529;
 }
 .success .successButton {
   display: flex;
@@ -12104,12 +12154,12 @@ h2, .h2 {
 }
 .success p {
   text-align: center;
-  margin: 10% auto;
+  margin: 7% auto;
   font-family: Roboto Mono, sans-serif;
 }
 .success img {
-  width: 80%;
-  height: 40%;
+  width: 70%;
+  height: 35%;
   margin: auto auto 10%;
 }
 
@@ -12120,6 +12170,7 @@ h2, .h2 {
   justify-content: center;
   align-items: center;
   width: 80%;
+  font-family: Roboto Mono, sans-serif;
 }
 .formTwig .form_row {
   width: 40%;
@@ -12246,7 +12297,7 @@ h2, .h2 {
   box-shadow: 0px 1px 5px black;
 }
 
-.search-input .icon {
+.search-input button {
   height: 55px;
   width: 55px;
   line-height: 55px;
@@ -12311,6 +12362,63 @@ h2, .h2 {
     width: 85%;
     height: 60vh;
   }
+}
+.checkboxStyle .toggler-wrapper {
+  display: block;
+  width: 45px;
+  height: 25px;
+  cursor: pointer;
+  position: relative;
+}
+.checkboxStyle .toggler-wrapper input[type=checkbox] {
+  display: none;
+}
+.checkboxStyle .toggler-wrapper input[type=checkbox]:checked + .toggler-slider {
+  background-color: #44cc66;
+}
+.checkboxStyle .toggler-wrapper .toggler-slider {
+  background-color: #ccc;
+  position: absolute;
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.checkboxStyle .toggler-wrapper .toggler-knob {
+  position: absolute;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+.checkboxStyle .toggler-wrapper.style-13 input[type=checkbox]:checked + .toggler-slider .toggler-knob {
+  left: calc(100% - 19px - 3px);
+}
+.checkboxStyle .toggler-wrapper.style-13 input[type=checkbox]:checked + .toggler-slider .toggler-knob:after {
+  content: "On";
+}
+.checkboxStyle .toggler-wrapper.style-13 .toggler-knob {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 6px rgba(153, 153, 153, 0.75);
+  box-shadow: 0 2px 6px rgba(153, 153, 153, 0.75);
+}
+.checkboxStyle .toggler-wrapper.style-13 .toggler-knob:after {
+  content: "Off";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 65%;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.7;
 }
 
 /*# sourceMappingURL=app.css.map */
