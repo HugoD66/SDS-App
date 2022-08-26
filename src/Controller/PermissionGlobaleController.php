@@ -19,7 +19,7 @@ class PermissionGlobaleController extends AbstractController
         $permission = $doctrine->getRepository(Permission::class)->findAll();
         $entityManager = $doctrine->getManager();
 
-/*
+
         $form = $this->createForm(GlobalePermissionType::class, $permission);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -29,7 +29,7 @@ class PermissionGlobaleController extends AbstractController
             $entityManager->flush();
 
         }
-*/
+
         return $this->render('permission_globale/permissions-globales.html.twig', [
             'form' => $form->createView(),
             'permission' => $permission,
