@@ -12,6 +12,8 @@ security:
             entity:
                 class: App\Entity\Partenaire
                 property: email
+
+
         app_user_provider:
             entity: { class: App\Entity\Admin, property: email }
 
@@ -35,8 +37,6 @@ security:
                 target: app_home
             entry_point: form_login
             access_denied_handler: App\Security\AccessDeniedHandler
-
-
 
         partenaire:
             lazy: true

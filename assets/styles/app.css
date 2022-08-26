@@ -12274,9 +12274,21 @@ h2, .h2 {
   outline: 0;
 }
 
+.isActiveCheck {
+  display: flex;
+  justify-content: center;
+  color: #DEDEDE;
+  font-size: large;
+  font-family: Roboto Mono, sans-serif;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-left: 30%;
+}
+
 .wrapper {
   max-width: 450px;
   margin: 150px auto;
+  height: 50px;
 }
 
 .wrapper .search-input {

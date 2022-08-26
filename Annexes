@@ -16,6 +16,7 @@ Bundles utilisés:
     rate-limiter (contre attaque force brute -securitee)
     String (The String component provides a single object-oriented API to work with three "unit systems" of strings: bytes, code points and grapheme clusters.)
     string-extra
+    Axios  Requete asynchrone
 GITHUB : https://github.com/HugoD66/SDS-App.git
 
 AFAIRRRR ;;;;;
@@ -24,11 +25,29 @@ A noter que le choix des permissions est disponible aussi directement depuis la 
 d’un partenaire. On les appelle “permissions globales”
 Il s’agira alors de permissions par défaut pour les structures enfants.
 → En gros, si on ajoute une structure alors automatiquement les droits de la structure
-Guide ECF 5
 seront ceux fixés dans la page du partenaire. Mais chaque permission de la structure
 restera activable ou désactivable.
 
+FIREWALLS
 
+Permissions globales
+
+Searchbar
+
+Isactive liste montrer seulement
+
+
+
+
+
+
+
+
+
+DOC :
+
+README Filer les logs de co a la fin
+FAIRE MANUEL UTILISATION
 ;;;;;;;;;;;;;
 
 

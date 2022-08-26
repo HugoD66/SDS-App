@@ -212,5 +212,20 @@ class Permission
 
         return $this;
     }
-
+    public function toArray() {
+        return [
+            'id' => $this->getId(),
+            'send_newsletter' => $this->isSendNewsletter(),
+            'sell_drink' => $this->isSellDrink(),
+            'payment_stats' => $this->isPaymentStats(),
+            'add_members' => $this->isAddMembers(),
+            'recrut_employee' => $this->isRecrutEmployee(),
+            'activated_website' => $this->isActivatedWebsite(),
+            'place_search' => $this->isPlaceSearch(),
+            'restaurant_site' => $this->isRestaurantSite(),
+            'renovation' => $this->isRenovation(),
+            'available_coach' => $this->isAvailableCoach(),
+            'isActive' => $this->isIsActive(),
+        ];
+    }
 }

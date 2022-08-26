@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+
+
+
+    <table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Propriétées disponibles</th>
+        <th scope="col">Permission </th>
+    </tr>
+    </thead>
+    <tbody>
+<tr>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {% for permissions in permission %}
+        <th>Envoyer newsletter :</th>
+        <th>
+            <div class="form-check form-switch">
+                {{ form_row(form.send_newsletter, { 'label': ' ' }) }}
+            </div>
+        </th>
+        </tr>
+        <tr>
+            <th>Vendre boissons : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.sell_drink, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Voir stats paiement	: </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.payment_stats, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Ajouter membre : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.add_members, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Recruter sallarier : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.recrut_employee, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Site activé : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.activated_website, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Recherche nouveau lieu : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.place_search, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Restaurant sur place : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.restaurant_site, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Renauvation à pervoire : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.renovation, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th>Coach disponible : </th>
+            <th>
+                <div class="form-check form-switch">
+                    {{ form_row(form.available_coach, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th style="color:#B0413E; font-size: large">Lieux en activitée ? </th>
+            <th style="font-size: large;">
+                <div class="form-check form-switch">
+                    {{ form_row(form.isActive, { 'label': ' ' }) }}
+                </div>
+            </th>
+        </tr>
+        </tbody>
+        </table>
+        <div class="formSubmit" onClick="return showConfirm()">
+            {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+        </div>
+        {{ form_end(form) }}
+
+    {% endfor %}
+
+
+{% endblock %}

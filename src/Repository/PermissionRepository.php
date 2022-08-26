@@ -47,6 +47,14 @@ class PermissionRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function getActivatedPermissions()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.id, u.isActive')
+            ->andWhere('u.isActive = 1')
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Permission[] Returns an array of Permission objects
 //     */
