@@ -17,19 +17,10 @@ Isactive liste montrer seulement
 
 DOC :
 
-⦁   Doc a rendre :
+Doc a rendre :
 ⦁   Cahier des charges remlir date debut a fin
 ⦁   Informations complémentaires
-⦁   Description situation de travail
-
-README :
-
-⦁   Filer les logs de co a la fin
-
-Manuel d'utilisation :
-⦁	Comptes mis à disposition     a faire
-⦁	Connexion / Rôles    a finir
-⦁   Note ?
+url site
 
 
 A METTRE :
@@ -37,5 +28,5 @@ A METTRE :
 - Bug non résolu:
 
 
-
+FIREWALL !
 Quand entitée désactivée  , Exception retourne Les identifiants invalides, et non pas que le compte n'est pas activé.
