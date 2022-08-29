@@ -1,32 +1,11 @@
-A noter que le choix des permissions est disponible aussi directement depuis la page
-d’un partenaire. On les appelle “permissions globales”
-Il s’agira alors de permissions par défaut pour les structures enfants.
-→ En gros, si on ajoute une structure alors automatiquement les droits de la structure
-seront ceux fixés dans la page du partenaire. Mais chaque permission de la structure
-restera activable ou désactivable.
-
-Permissions globales
-
-
-
 Searchbar
 Isactive liste montrer seulement
 
 
 
 
-DOC :
 
 Doc a rendre :
-⦁   Cahier des charges remlir date debut a fin
-⦁   Informations complémentaires
-url site
+⦁   Cahier des charges remplir date debut a fin
+⦁   Url site
 
-
-A METTRE :
-
-- Bug non résolu:
-
-
-FIREWALL !
-Quand entitée désactivée  , Exception retourne Les identifiants invalides, et non pas que le compte n'est pas activé.
