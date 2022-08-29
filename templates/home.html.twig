@@ -7,7 +7,19 @@
 
 <div class="acceuil">
     <img src="{{ asset('picture/logo-marque/dark-boot-marque.png') }}" alt="Image principale d'acceuil">
-    <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel') }}">Acceuil</a></button>
+    {% if app.user %}
+
+        {% if app.user.roles == ['ROLE_ADMIN'] %}
+        <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel') }}">Acceuil</a></button>
+        {% elseif app.user.roles == ['ROLE_PARTENAIRE'] %}
+        <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel_partenaire') }}">Acceuil</a></button>
+        {% else %}
+        <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel') }}">Acceuil</a></button>
+        {% endif %}
+    {% else %}
+        <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel') }}">Acceuil</a></button>
+
+    {% endif %}
 </div>
 
 {% endblock %}

@@ -46,7 +46,7 @@ class AddPartenaireController extends AbstractController
         }
         return $this->render('add/partenaire.html.twig', [
             'form' => $form->createView(),
-            'title' => 'Ajout de l\'entreprise',
+            'title' => 'Dantabase - Ajout de l\'entreprise',
         ]);
     }
 }

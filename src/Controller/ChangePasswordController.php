@@ -35,7 +35,7 @@ class ChangePasswordController extends AbstractController
         }
 
         return $this->render('registration/change-password.html.twig', [
-            'title' => 'Actualisation MDP',
+            'title' => 'Dantabase - Actualisation MDP',
             'user' => $user,
             'form' => $form->createView(),
         ]);

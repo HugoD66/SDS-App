@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion Franchise{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block body %}
 <h1>Connexion Franchise</h1>
@@ -34,6 +34,7 @@
             <button class="buttonSend" type="submit"> Se Connecter </button>
                     {% if error %}
                         <div style="text-align: center" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+
                     {% endif %}
                     {% if app.user %}
                         <div class="mb-3">

@@ -1,0 +1,169 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    <h1>Liste des établissements</h1>
+    <div class="wrapper">
+        <div class="search-input" >
+            <input id="search"
+                   type="search"
+                   name="q"
+                   class="form-control"
+                   placeholder="Entrez pour rechercher...">
+            <div class="autocom-box">
+                {% for permission in permissions %}
+                    <li>
+                        {{ permission.street }}
+                    </li>
+                {% endfor %}
+            </div>
+            <div class="icon" >
+                <button type="button" value="Submit">
+                    <a href="">
+                    </a></button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="isActiveCheck" >
+        <input class="buttonCheck" type="checkbox" id="horns" name="horns" value="1">
+        <label for="horns">Afficher seulement les bâtiments activés</label>
+    </div>
+    <div class="users"></div>
+
+
+
+
+
+
+
+    {% for permission in permissions %}
+        <div class="listePermissions" style="width: 80%;">
+        <h2>Propiétaire : {{ permission.branchId }} </a></h2>
+        <h3>{{ permission.street }}</h3>
+        <ul>
+            <li>Envoyer newsletter : {{ permission.sendNewsletter ? 'Oui' : 'Non' }}</li>
+            <li>Vendre boissons : {{ permission.sellDrink ? 'Oui' : 'Non' }}</li>
+            <li>Voir stats paiement	: {{ permission.paymentStats ? 'Oui' : 'Non' }}</li>
+            <li>Ajouter membre : {{ permission.addMembers ? 'Oui' : 'Non' }}</li>
+            <li>Recruter sallarier : {{ permission.recrutEmployee ? 'Oui' : 'Non' }}</li>
+            <li>Site activé : {{ permission.activatedWebsite ? 'Oui' : 'Non' }}</li>
+            <li>Recherche nouveau lieu : {{ permission.placeSearch ? 'Oui' : 'Non' }}</li>
+            <li>Restaurant sur place : {{ permission.restaurantSite ? 'Oui' : 'Non' }}</li>
+            <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
+            <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
+            <li style="color:#B0413E; font-size: large">Lieux en activitée ? {{ permission.isActive ? 'Oui' : 'Non' }} </li><br>
+        </ul>
+        {% if app.user.roles == ['ROLE_ADMIN'] %}
+            <button style="margin-bottom: 3%;"
+                    type="button"
+                    class="buttonSend">
+                <a href="{{ path('app_update_permission', {'id': permission.id}) }}"> Accés aux modifs. du Bâtiment
+                </a>
+            </button>
+            <button style="margin-bottom: 3%;"
+                    type="button"
+                    class="buttonSend"
+                    onClick="showConfirm()">
+                <a href="{{ path('app_delete_permission', {'id': permission.id}) }}"> Supprimer Bâtiment
+                </a>
+            </button>
+            <div class="barreHorizontale"></div><br>
+            </div>
+        {% else %}
+            <button style="margin-bottom: 3%;"
+                    type="button"
+                    class="buttonSend">
+                <a href="{{ path('app_permission_partenaire', {'id': permission.id}) }}" onclick="ouvrirPage()"> Accés au Bâtiment
+                </a>
+            </button>
+            <div class="barreHorizontale"></div><br>
+            </div>
+
+
+        {% endif %}
+    {% endfor %}
+
+    <script>
+
+
+        import axios from "axios";
+
+        window.addEventListener('click', function(event) {
+            document.getElementById('horns').addEventListener('click', getActivate )
+        })
+
+
+
+        function getActivate (event) {
+            event.preventDefault();
+            axios.get(this.href).then(response => {
+                const userSelect = document.querySelector("div.users");
+                if(this.classList.contains('buttonCheck')) {
+                    response.data.forEach(permission => {
+
+                    })
+                }
+            }).catch(error => {
+                console.error(error);
+                window.alert("Une erreur s'est produite.");
+
+            });
+        }
+
+
+    </script>
+    <script>
+        const searchWrapper = document.querySelector(".search-input");
+        const inputBox = searchWrapper.querySelector("input");
+        const suggBox = searchWrapper.querySelector(".autocom-box");
+        const suggestions = [ {% for permission in permissions %}  "{{ permission.street }}" , {% endfor %} ];
+
+
+        inputBox.onkeyup = (e) => {
+            let userData = e.target.value;
+            let emptyArray = [];
+            if(userData) {
+                emptyArray = suggestions.filter((data) => {
+                    return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+                });
+                emptyArray = emptyArray.map((data)=>{
+                    return data = '<li>'+ data +'</li>';
+                })
+                console.log(emptyArray);
+                searchWrapper.classList.add("active");
+                showSuggestions(emptyArray)
+                let allList = suggBox.querySelectorAll("li");
+                for (let i = 0; i < allList.length; i ++) {
+                    allList[i].setAttribute("onclick", "select(this)");
+                }
+            } else {
+                searchWrapper.classList.remove("active");
+            }
+
+        }
+
+        function select(element) {
+            let selectUserData = element.textContent;
+            inputBox.value = selectUserData;
+            searchWrapper.classList.remove("active");
+        }
+
+        function showSuggestions(list) {
+            let listData;
+            if(!list.length) {
+                userValue = inputBox.value;
+                listData = '<li>'+ userValue +'</li>';
+            }else {
+                listData = list.join('');
+            }
+            suggBox.innerHTML= listData;
+        }
+
+
+    </script>
+
+{% endblock %}

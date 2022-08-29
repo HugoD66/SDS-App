@@ -30,6 +30,7 @@
         <a class="navbar-brand text-white" href="{{ path('app_home') }}">
             <img src="{{ asset('picture/logo-marque/dark-boot-icon.png') }}" width="150" height="140" alt="Logo du site">
         </a>
+
         <button class="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
@@ -41,16 +42,34 @@
         </button>
         <div class="collapse navbar-collapse flex-row-reverse" id="barMenu">
             <ul class="navbar-nav ">
+                {% if app.user %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Liste
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
+                                {% if app.user.roles == ['ROLE_ADMIN'] %}
+                                    <a class="dropdown-item" href="{{ path('app_liste_structure') }}">De nos Structures</a>
+                                    <a class="dropdown-item" href="{{ path('app_liste_permissions') }}">De nos Bâtiments</a>
+                                {% elseif app.user.roles == ['ROLE_PARTENAIRE'] %}
+                                    <a class="dropdown-item" href="{{ path('app_liste_structure_partenaire') }}">De nos Structures</a>
+                                    <a class="dropdown-item" href="{{ path('app_liste_permissions_partenaire') }}">De nos Bâtiments</a>
+                                {% else %}
+                                {% endif %}
+                        </div>
+                    </li>
+                {% else %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Liste
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('app_liste_structure') }}">De nos Structures</a>
-                        <a class="dropdown-item" href="{{ path('app_liste_permissions') }}">De nos Bâtiments</a>
+                        <a class="dropdown-item" href="{{ path('app_liste_structure_partenaire') }}">De nos Structures</a>
+                        <a class="dropdown-item" href="{{ path('app_liste_permissions_partenaire') }}">De nos Bâtiments</a>
                     </div>
                 </li>
+                {% endif %}
                 <li class="nav-item">
                 {% if app.user %}
                 <a class="nav-link text-white" href="{{ path('app_logout') }}">Deconnexion</a>
@@ -61,18 +80,27 @@
                         Connexion
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="{{ path('app_login') }}">Administrateur (L’équipe tech.)</a>
-                        <a class="dropdown-item" href="{{ path('app_login_partenaire') }}">Client (Gérants des franchises)</a>
-                        <a class="dropdown-item" href="#">Directeur (Gérants des bâtiments)</a>
+                        <a class="dropdown-item" href="{{ path('app_login') }}">Administrateur</a>
+                        <a class="dropdown-item" href="{{ path('app_login_partenaire') }}">Gérants Structures</a>
+                        <a class="dropdown-item" href="#">Gérants Bâtiment</a>
                     </div>
                 </li>
                 {% endif %}
+
                 <li class="nav-item">
                     {% if app.user %}
-                        <a class="nav-link text-white" href="{{ path('app_profil', { 'id' : app.user.id}) }}">Mon compte</a>
+                        {% if app.user.roles == ['ROLE_ADMIN'] %}
+                            <a class="nav-link text-white" href="{{ path('app_profil', { 'id' : app.user.id}) }}">Mon compte</a>
+                        {% elseif app.user.roles == ['ROLE_PARTENAIRE'] %}
+                            <a class="nav-link text-white" href="{{ path('app_profil_partenaire', { 'id' : app.user.id}) }}">Mon compte</a>
+                        {% elseif app.user.roles == ['ROLE_PERMISSION'] %}
+                            <a class="nav-link text-white" href="#">Mon compte</a>
+                        {% else %}
+                        {% endif %}
                     {% else %}
                     {% endif %}
                 </li>
+
             </ul>
         </div>
     </nav>

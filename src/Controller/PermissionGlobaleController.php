@@ -33,7 +33,7 @@ class PermissionGlobaleController extends AbstractController
         return $this->render('permission_globale/permissions-globales.html.twig', [
             'form' => $form->createView(),
             'permission' => $permission,
-            'title' => 'Permissions Globales',
+            'title' => 'Dantabase - Permissions Globales',
         ]);
     }
 }

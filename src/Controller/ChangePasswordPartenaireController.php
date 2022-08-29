@@ -14,7 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class ChangePasswordPartenaireController extends AbstractController
 {
-    #[Route('/change-password-partenaire', name: 'app_change_password_partenaire')]
+    #[Route('/login-partenaire/change-password-partenaire', name: 'app_change_password_partenaire')]
     public function indexPartenaire(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $partenaire = $this->getUser();
@@ -51,7 +51,7 @@ class ChangePasswordPartenaireController extends AbstractController
         }
 
         return $this->render('registration/change-password-partenaire.html.twig', [
-            'title' => 'Actualisation MDP',
+            'title' => 'Dantabase - Actualisation MDP',
             'partenaire' => $partenaire,
             'form' => $form->createView(),
         ]);

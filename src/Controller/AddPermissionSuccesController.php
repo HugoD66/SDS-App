@@ -12,7 +12,7 @@ class AddPermissionSuccesController extends AbstractController
     public function index(): Response
     {
         return $this->render('add/permission-success.html.twig', [
-            'title' => 'SDS-Succés Ajout Bâtiment',
+            'title' => 'Dantabase - Succés Ajout Bâtiment',
         ]);
     }
 }

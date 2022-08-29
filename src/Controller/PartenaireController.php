@@ -18,7 +18,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class PartenaireController extends AbstractController
 {
-    #[Route('/partenaire/{id}', name: 'app_partenaire')]
+    #[Route('/login-partenaire/partenaire/{id}', name: 'app_partenaire')]
     public function index(ManagerRegistry $doctrine,int $id): Response
     {
         $user = $this->getUser();
@@ -27,7 +27,7 @@ class PartenaireController extends AbstractController
         $partenaire = $doctrine->getRepository(Partenaire::class)->find($id);
 
         return $this->render('structure/partenaire-id.html.twig', [
-            'title' => 'SDS- Votre Franchise',
+            'title' => 'Dantabase - Votre Franchise',
             'partenaire' => $partenaire,
             'user' => $user,
             'structure' => $structure,

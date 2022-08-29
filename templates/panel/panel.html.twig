@@ -70,6 +70,10 @@
                 <th>Nombre de bâtiments possédés en France</th>
                 <th> <a href="{{ path('app_liste_permissions') }}">{{ permission }}</a></th>
             </tr>
+            <tr>
+                <th>En activité ? </th>
+                <th style="color:#B0413E; font-size: large"> {{ partenaire.active ? 'Oui' : 'Non' }}</th>
+            </tr>
         </tbody>
     </table>
     </div>

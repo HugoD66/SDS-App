@@ -1,26 +1,3 @@
-Bundles utilisés:
-    Annotation
-    Tiwg
-    Form
-    Doctrine
-    Validator
-    Profiler
-    Maker
-    Mailer
-    Google-mailer
-    webpack-encore
-    Requirements-checker
-    Security-bundle
-    Security-csrf
-    verify-email-bundle
-    rate-limiter (contre attaque force brute -securitee)
-    String (The String component provides a single object-oriented API to work with three "unit systems" of strings: bytes, code points and grapheme clusters.)
-    string-extra
-    Axios  Requete asynchrone
-GITHUB : https://github.com/HugoD66/SDS-App.git
-
-AFAIRRRR ;;;;;
-
 A noter que le choix des permissions est disponible aussi directement depuis la page
 d’un partenaire. On les appelle “permissions globales”
 Il s’agira alors de permissions par défaut pour les structures enfants.
@@ -28,136 +5,32 @@ Il s’agira alors de permissions par défaut pour les structures enfants.
 seront ceux fixés dans la page du partenaire. Mais chaque permission de la structure
 restera activable ou désactivable.
 
-FIREWALLS
 
 Permissions globales
+Connexion impossible si non activé.
 
 Searchbar
-
 Isactive liste montrer seulement
-
-
-
-
-
-
 
 
 
 DOC :
 
-README Filer les logs de co a la fin
-FAIRE MANUEL UTILISATION
-;;;;;;;;;;;;;
+⦁   Doc a rendre :
+⦁   Cahier des charges remlir date debut a fin
+⦁   Informations complémentaires
+⦁   Description situation de travail
+
+README :
+
+⦁   Filer les logs de co a la fin
+
+Manuel d'utilisation :
+⦁	Comptes mis à disposition     a faire
+⦁	Connexion / Rôles    a finir
+⦁   Note ?
 
 
+A METTRE :
 
-
-
-
-
-.search-input {
-    width: 100%;
-    border-radius: 5px;
-    box-shadow: 0px 1px 5px 3px black;
-    input {
-      height: 55px;
-      width: 100%;
-      outline: none;
-      border: none;
-      border-radius: 5px;
-      padding: 0 60px 0 20px;
-      font-size: 18px;
-      font-family: $text;
-      box-shadow: 0px 1px 5px black;
-    }
-    .icon {
-      height: 55px;
-      width: 55px;
-      line-height: 55px;
-      position: absolute;
-      top: 0;
-      right: 0;
-      text-align: center;
-      color: green;
-      cursor: pointer;
-    }
-    .autocom-box {
-      padding: 10px 8px;
-      display: none;
-      li {
-        list-style: none;
-        padding: 8px 12px;
-        width: 100%;
-        cursor: default;
-        border-radius: 3px;
-        display: none;
-        &:hover {
-          background: #DDDDDD;
-        }
-      }
-    }
-  }
-}
-.search-input .autocom-box {
-  opacity: 0;
-  overflow-y: auto;
-  pointer-events: none;
-  max-height: 280px;
-  padding: 0px;
-}
-
-.search-input.active .autocom-box.active {
-  padding: 10px 8px;
-  opacity: 1;
-  pointer-events: auto;
-
-
-}
-.search-input.active .autocom-box.active li.active {
-  display: block;
-}
-
-
-USERCHECKER :
-
-
-<?php
-namespace App\Security;
-
-use App\Entity\Partenaire as AppPartenaire;
-use Symfony\Component\Security\Core\Exception\AccountExpiredException;
-
-use Symfony\Component\Security\Core\Exception\CustomUserMessageAuthenticationException;
-use Symfony\Component\Security\Core\User\UserCheckerInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
-
-class UserChecker implements UserCheckerInterface
-{
-    public function checkPreAuth(UserInterface $user)
-    {
-        if (!$user instanceof AppPartenaire) {
-            return;
-        }
-        if (!$user->isActive()) {
-            throw new CustomUserMessageAuthenticationException(
-                'Inactive account cannot log in!'
-            );
-        }
-    }
-    public function checkPostAuth(UserInterface $user)
-    {
-        if (!$user instanceof AppPartenaire) {
-            return;
-        }
-
-        $this->checkPreAuth($user);
-    }
-}
-
-
-
-
-
-
-            user_checker: App\Security\UserChecker
+- Bug non résolu: Quand entitée désactivée  , Exception retourne Les identifiants invalides, et non pas que le compte n'est pas activé.

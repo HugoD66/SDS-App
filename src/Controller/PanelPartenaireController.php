@@ -10,9 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PanelController extends AbstractController
+class PanelPartenaireController extends AbstractController
 {
-    #[Route('/panel', name: 'app_panel')]
+    #[Route('/login-partenaire/panel', name: 'app_panel_partenaire')]
     public function index(ManagerRegistry $doctrine): Response
     {
         $user = $this->getUser();
@@ -22,7 +22,7 @@ class PanelController extends AbstractController
         $permissions = $doctrine->getRepository(Permission::class)->countPermission();
 
         $partenaire = $doctrine->getRepository(Partenaire::class)->find(1);
-        return $this->render('panel/panel.html.twig', [
+        return $this->render('panel/panel-partenaire.html.twig', [
             'title' => 'Dantabase - Page d\'Acceuil',
             'partenaire' => $partenaire,
             'user' => $user,

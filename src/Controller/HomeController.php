@@ -14,7 +14,7 @@ class HomeController extends AbstractController
         $user = $this->getUser();
 
         return $this->render('home.html.twig', [
-            'title' => 'SDS ACCEUIL'
+            'title' => 'Dantabase - Acceuil'
             ]);
     }
 }

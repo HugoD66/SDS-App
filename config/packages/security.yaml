@@ -7,24 +7,32 @@ security:
         App\Entity\Partenaire:
             algorithm: auto
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
+
     providers:
-        app_partenaire_provider:
-            entity:
-                class: App\Entity\Partenaire
-                property: email
-
-
         app_user_provider:
             entity: { class: App\Entity\Admin, property: email }
-
-
+        app_partenaire_provider:
+            entity: { class: App\Entity\Partenaire, property: email },
         providers:
             chain:
                 providers: ['app_user_provider', 'app_partenaire_provider']
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+
+
+        partenaire:
+            lazy: true
+            pattern: ^/login-partenaire
+            provider: app_partenaire_provider
+            custom_authenticator: App\Security\LoginPartenaireAuthenticator
+            user_checker: App\Security\UserChecker
+
+            logout:
+                target: app_home
+
         main:
             lazy: true
             provider: app_user_provider
@@ -37,30 +45,16 @@ security:
                 target: app_home
             entry_point: form_login
             access_denied_handler: App\Security\AccessDeniedHandler
-
-        partenaire:
-            lazy: true
-            pattern: ^/
-            provider: app_partenaire_provider
-            custom_authenticator: App\Security\LoginPartenaireAuthenticator
-            logout:
-                target: app_home
-
-
-
-
-
-
-
-
-
-
+            login_throttling:
+                max_attempts: 20
+                interval: '15 minutes'
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
             # https://symfony.com/doc/current/security/impersonating_user.html
             # switch_user: true
+
     role_hierarchy:
         ROLE_PERMISSION:    ROLE_USER
         ROLE_PARTENAIRE:    ROLE_PERMISSION
@@ -69,9 +63,14 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/add_partenaire, roles: ROLE_ADMIN }
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/register, roles: ROLE_ADMIN }
+        - { path: ^/add_partenaire, roles: ROLE_ADMIN }
+        - { path: ^/add_permission, roles: ROLE_ADMIN }
+        - { path: ^/add-structure, roles: ROLE_ADMIN }
+        - { path: ^/change-password, roles: ROLE_ADMIN }
+        - { path: ^/permission-globale, roles: ROLE_ADMIN }
+        - { path: ^/profil, roles: ROLE_ADMIN }
+        - { path: ^/login-partenaire/ , roles: ROLE_PARTENAIRE }
         - { path: ^/permission, roles: ROLE_PARTENAIRE }
         - { path: ^/permissions, roles: ROLE_PARTENAIRE }
         - { path: ^/structure, roles: ROLE_PARTENAIRE }

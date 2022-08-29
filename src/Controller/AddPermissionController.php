@@ -29,7 +29,7 @@ class AddPermissionController extends AbstractController
         }
 
         return $this->render('add/permission.html.twig', [
-            'title' => 'SDS- Ajout d\'un bâtiment',
+            'title' => 'Dantabase - Ajout d\'un bâtiment',
             'form' => $form->createView(),
 
         ]);

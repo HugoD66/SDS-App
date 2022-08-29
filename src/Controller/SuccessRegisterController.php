@@ -13,7 +13,7 @@ class SuccessRegisterController extends AbstractController
     {
 
         return $this->render('registration/success-register.html.twig', [
-            'controller_name' => 'SuccessRegisterController',
+            'title' => 'Dantabase - Succés d\'enregistrement',
         ]);
     }
 }

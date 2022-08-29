@@ -46,7 +46,7 @@ class AddStructureController extends AbstractController
 
         }
         return $this->render('add/structure.html.twig', [
-            'title' => 'SDS - Ajout Structure',
+            'title' => 'Dantabase - Ajout Structure',
             'form' => $form->createView(),
         ]);
     }

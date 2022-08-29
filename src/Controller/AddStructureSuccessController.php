@@ -12,7 +12,7 @@ class AddStructureSuccessController extends AbstractController
     public function index(): Response
     {
         return $this->render('add/structure-success.html.twig', [
-            'controller_name' => 'AddStructureSuccessController',
+            'title' => 'Dantabase - Succés ajout d\'une structure',
         ]);
     }
 }

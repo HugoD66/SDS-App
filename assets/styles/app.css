@@ -12112,7 +12112,7 @@ h2, .h2 {
   font-family: Roboto Mono, sans-serif;
 }
 .success h4, .success .h4 {
-  margin-right: 60%;
+  margin: auto;
   font-family: Goudy Old Style, serif;
   font-size: xx-large;
 }

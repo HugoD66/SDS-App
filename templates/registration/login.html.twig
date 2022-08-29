@@ -20,7 +20,9 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <button type="submit" class="buttonSend">Se connecter</button><br>
             {% if error %}
-                <div style="text-align: center" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>            {% endif %}
+                <div style="text-align: center" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}
+                </div>
+            {% endif %}
         </form>
 
     </div>

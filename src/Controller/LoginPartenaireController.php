@@ -20,12 +20,11 @@ class LoginPartenaireController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-
         return $this->render('registration/login-partenaire.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
             'partenaire' => 'app_partenaire_provider',
-
+            'title' => 'Dantabase - Connxion Franchise',
         ]);
     }
 

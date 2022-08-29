@@ -9,9 +9,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ListePermissionsController extends AbstractController
+class ListePermissionsPartenaireController extends AbstractController
 {
-    #[Route('/permissions', name: 'app_liste_permissions')]
+    #[Route('/login-partenaire/liste-permissions', name: 'app_liste_permissions_partenaire')]
     public function index(ManagerRegistry $doctrine): Response
     {
         $permission = $doctrine->getRepository(Permission::class)->findAll();
@@ -19,12 +19,11 @@ class ListePermissionsController extends AbstractController
 
         $permissionIsActive = $doctrine->getRepository(Permission::class)->getActivatedPermissions();
 
-
-        return $this->render('liste/liste-permissions.html.twig', [
+        return $this->render('liste/liste-permission-partenaire.html.twig', [
             'title' => 'Dantabase - Liste des établissements',
             'permissions' => $permission,
             'structure' => $structure,
             'permissionIsActive' => $permissionIsActive,
-        ]);
+            ]);
     }
 }

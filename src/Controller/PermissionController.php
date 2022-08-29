@@ -22,7 +22,7 @@ class PermissionController extends AbstractController
 
 
         return $this->render('structure/permission-id.html.twig', [
-            'title' => 'SDS- Bâtiment de l\'entreprise',
+            'title' => 'Dantabase - Bâtiment de l\'entreprise',
             'permission' => $permission,
         ]);
     }

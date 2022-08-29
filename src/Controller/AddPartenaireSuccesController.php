@@ -14,7 +14,7 @@ class AddPartenaireSuccesController extends AbstractController
 
 
         return $this->render('add/partenaire-success.html.twig', [
-            'title' => 'SDS-Succés Ajout Partenaire',
+            'title' => 'Dantabase - Succés Ajout Partenaire',
         ]);
     }
 }

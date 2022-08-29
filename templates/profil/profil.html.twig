@@ -1,18 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 {% block body %}
     <h1>Page de gestion de compte</h1>
-
     <div class="success">
-
-
-        {% if app.user %}
         {%  if is_granted('ROLE_ADMIN') %}
-            <h4><br>Présentation : </h4>
+            <h4><br>Présentation  </h4>
             <p>Vous aurez accés ici, à toute la gestion de la franchise, de ses structures ainsi que de leurs bâtiments.</p>
-
             <div class="identifiants">
                 <h5>Vos identifiants </h5>
                     <ul>
@@ -22,61 +17,35 @@
                     <button type="button" class="buttonSend"><a href="{{ path('app_change_password') }}">Changement du mot de passe</a></button>
             </div>
             <br>
-            <h4>Ajout :</h4>
+            <div class="identifiants">
+                <button type="button" class="buttonSend"><a href="{{ path('app_register') }}">Enregistrement nouvel admin</a></button>
+                <h5>Vous souhaitez agrandir votre équipe ?  </h5>
+            </div>
+            <br>
+            <h4>Ajout </h4>
             <div class="successButton">
-                <button type="button" class="buttonSend"><a href="{{ path('app_add_partenaire') }}"> Ajout d'une franchise </a></button>
-                <button type="button" class="buttonSend"><a href="{{ path('app_add_structure') }}"> Ajout d'une Structure </a></button>
-                <button type="button" class="buttonSend"><a href="{{ path('app_add_permission') }}"> Ajout d'un Bâtiment </a></button>
+                <button type="button" class="buttonSend"><a href="{{ path('app_add_partenaire') }}"> Ajout  franchise </a></button>
+                <button type="button" class="buttonSend"><a href="{{ path('app_add_structure') }}"> Ajout  Structure </a></button>
+                <button type="button" class="buttonSend"><a href="{{ path('app_add_permission') }}"> Ajout Bâtiment </a></button>
             </div>
             <h4>Modification</h4>
         <div class="successButton">
-            <button type="button" class="buttonSend"><a href="{{ path('app_update_partenaire', {'id': 1}) }}">Modification de Garde la patate</a></button>
-            <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure') }}"> Modification d'une structure </a></button>
-            <button type="button" class="buttonSend"><a href="{{ path('app_liste_permissions') }}"> Modification d'un bâtiment </a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_update_partenaire', {'id': 1}) }}">Modification  Garde la patate</a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure') }}"> Modification  structure </a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_liste_permissions') }}"> Modification  bâtiment </a></button>
         </div>
             <h4>Suppression</h4>
             <div class="successButton">
-                <button type="button" class="buttonSend"><a href="{{ path('app_update_partenaire', {'id': 1}) }}">Suppression de Garde la patate</a></button>
-                <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure') }}"> Suppression d'une structure </a></button>
-                <button type="button" class="buttonSend"><a href="{{ path('app_liste_permissions') }}"> Suppression d'un bâtiment </a></button>
+                <button type="button" class="buttonSend"><a href="{{ path('app_update_partenaire', {'id': 1}) }}">Suppression  Garde la patate</a></button>
+                <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure') }}"> Suppression structure </a></button>
+                <button type="button" class="buttonSend"><a href="{{ path('app_liste_permissions') }}"> Suppression  bâtiment </a></button>
             </div>
             <h4>Permissions Globales</h4>
 
         <div class="successButton">
             <button type="button" class="buttonSend"><a href="{{ path('app_permission_globale')}}">Accés</a></button>
-
         </div>
-
-
-
-
-
-
-
-
-
-        {% elseif is_granted('ROLE_PARTENAIRE') %}
-            <p>partenaire</p>
-            <button type="button" class="buttonSend"><a href="{{ path('app_change_password_partenaire') }}">Changement du mot de passe</a></button>
-
-
-
-
-
-
-
-
-
-
-        {% elseif is_granted('ROLE_PERMISSION') %}
-            <p>permission</p>
-        {% endif %}
     {% else %}
     {% endif %}
-
-
-
-
-
 </div>
 {% endblock %}

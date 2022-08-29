@@ -24,7 +24,7 @@ class StructureController extends AbstractController
 
 
         return $this->render('structure/structure-id.html.twig', [
-            'title' => 'SDS- Structure de l\'entreprise',
+            'title' => 'Dantabase - Structure de l\'entreprise',
             'structure' => $structure,
             'permissions' => $permission,
             ]);
