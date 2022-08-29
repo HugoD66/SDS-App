@@ -6,7 +6,6 @@
     <h1>Page de gestion de compte</h1>
     <div class="success">
         {%  if is_granted('ROLE_ADMIN') %}
-            <h4><br>Présentation  </h4>
             <p>Vous aurez accés ici, à toute la gestion de la franchise, de ses structures ainsi que de leurs bâtiments.</p>
             <div class="identifiants">
                 <h5>Vos identifiants </h5>
@@ -21,7 +20,7 @@
                 <button type="button" class="buttonSend"><a href="{{ path('app_register') }}">Enregistrement nouvel admin</a></button>
                 <h5>Vous souhaitez agrandir votre équipe ?  </h5>
             </div>
-            <br>
+            <br><br>
             <h4>Ajout </h4>
             <div class="successButton">
                 <button type="button" class="buttonSend"><a href="{{ path('app_add_partenaire') }}"> Ajout  franchise </a></button>

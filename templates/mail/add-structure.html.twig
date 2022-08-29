@@ -1,0 +1,14 @@
+<h1>Bonjour! Veuillez confirmer votre Email</h1>
+
+<p>
+    Confirmez votre email en cliquant sur le lien ci-dessous: <br><br>
+    <a href="{{ signedUrl }}">Confirmer adresse mail</a>. <br>
+    
+    Il vous est conseillé de changer votre mot de passe à la première utilisation: <br>
+    <a href="{{ path('app_change_password_structure') }}">Changer Mot de passe</a> <br> <br>
+    Ce lien va expirer dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
+</p>
+
+<p>
+    Bonne journée!
+</p><br>

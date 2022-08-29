@@ -94,14 +94,31 @@ Ce projet m'a été demandé pour une évaluation en cours de formation à l'éc
 
         symfony console doctrine:database:create
         symfony console doctrine:migrations:migrate
-
-Il sera malgré tout obligatoire de configurer le fichier .env de l'application afin d'y accéder.
 </li>
 
 
 </ul>
+<p>Il sera malgré tout obligatoire de configurer le fichier .env de l'application afin d'y accéder.</p>
 
-
+<h4>Identifiants</h4>
+<p>Afin de découvrir l'application, des identifiants sont mis à disposition pour chacun des rôles de l'application.</p>
+<ul>
+    <li><h5>Administrateur</h5>
+        <ul>
+            <li>Email : admin@admin.com</li>
+            <li>Mot de passe : azeaze</li>
+        </ul></li>
+    <li><h5>Gérant de la franchise</h5>
+        <ul>
+            <li>Email : Partenaire@gmail.com</li>
+            <li>Mot de passe : azeaze</li>
+        </ul></li>
+    <li><h5>Gérant d'une des structures</h5>
+        <ul>
+            <li>Email : GerantPerpignan@gmail.com</li>
+            <li>Mot de passe : azeaze</li>
+        </ul></li>
+</ul>
 <h1>Compléments</h1>
 
 <p>Vous retrouverez toutes les informations complémentaires dans le dossier Annexes de l'application. S'y trouveront notamment :</p>

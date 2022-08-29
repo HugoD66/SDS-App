@@ -4,11 +4,63 @@
 
 {% block body %}
     <h1>Page de gestion de compte</h1>
-<div class="success">
-    <button type="button" class="buttonSend"><a href="{{ path('app_change_password_structure') }}">Changement du mot de passe</a></button>
-    <button type="button" class="buttonSend"><a href="{{ path('app_liste_permission_structure') }}">Liste des bâtiments</a></button>
-    <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure_structure') }}">Liste des structures</a></button>
-    <button type="button" class="buttonSend"><a href="{{ path('app_partenaire_structure', { 'id': 1}) }}">Votre Franchise</a></button>
+    <div class="success"><br>
+        <h4>Présentation </h4>
+        <div class="p">
+            <p>A partir de cette page, il vous sera permis de parcourir toutes vos structures et vos bâtiments, en activité où non.
+                <br>Il ne vous sera par contre pas possible d'accéder aux modifications d'aucune d'entre elles.
+            </p>
+        </div>
+        <div class="identifiants" style="width: 40%;">
+            <ul>
+                <li><b style="color: rgba(73, 106, 123, 0.96);"> Nom de votre structure :</b> {{ structure.name }}</li>
+                <li><b style="color: rgba(73, 106, 123, 0.96);"> Votre email : </b> {{ structure.email }}</li>
+                <li><b style="color: rgba(73, 106, 123, 0.96);"> Structure en activité ? </b> {{ structure.active ? 'Oui' : 'Non' }}</li>
+                <li><b style="color: rgba(73, 106, 123, 0.96);"> Votre villes : </b> {{ structure.city }}</li>
+            </ul>
+        </div>
+            <button type="button" class="buttonSend"><a href="{{ path('app_change_password_structure') }}">Changement du mot de passe</a></button>
+        <div class="p">
+            <p>Vous pouvez, d'ici, parcourir les différentes structures que posséde vos collaborateurs, ou la page des coordonnées de votre franchise.</p>
 
-</div>
+        </div>
+        <div class="successButton">
+            <button type="button" class="buttonSend"><a href="{{ path('app_liste_permission_structure') }}">Liste des bâtiments</a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_partenaire_structure', { 'id': 1}) }}">Votre Franchise</a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure_structure') }}">Liste des structures</a></button>
+        </div>
+        <h4>Bâtiments possédés</h4>
+            <p>Vous avez accés ici, des bâtiments qui sont dans votre ville, ainsi que leurs permissions.</p>
+        <div class="successButton">
+
+            <div class="structureId">
+                {% for permission in permissions %}
+                    {% if permission.branchId == structure %}
+                            <h3><u>Adresse</u> : {{ permission.street }}</h3>
+                            <ul>
+                                <li>Envoyer newsletter : {{ permission.sendNewsletter ? 'Oui' : 'Non' }}</li>
+                                <li>Vendre boissons : {{ permission.sellDrink ? 'Oui' : 'Non' }}</li>
+                                <li>Voir stats paiement	: {{ permission.paymentStats ? 'Oui' : 'Non' }}</li>
+                                <li>Ajouter membre : {{ permission.addMembers ? 'Oui' : 'Non' }}</li>
+                                <li>Recruter sallarier : {{ permission.recrutEmployee ? 'Oui' : 'Non' }}</li>
+                                <li>Site activé : {{ permission.activatedWebsite ? 'Oui' : 'Non' }}</li>
+                                <li>Recherche nouveau lieu : {{ permission.placeSearch ? 'Oui' : 'Non' }}</li>
+                                <li>Restaurant sur place : {{ permission.restaurantSite ? 'Oui' : 'Non' }}</li>
+                                <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
+                                <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
+                                <li style="color:red;"> <b>Structure en activité ? {{ permission.isActive ? 'Oui' : 'Non' }}</b></li>
+                            </ul>
+                                <button type="button" class="buttonSend" style="margin: auto;"><a href="{{ path('app_permission_structure', {'id': permission.id}) }}">Accés au bâtiment</a></button>
+                                <br>
+                            <div class="barreHorizontale"></div>
+                            <br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+
 {% endblock %}

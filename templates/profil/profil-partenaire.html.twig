@@ -4,15 +4,26 @@
 
 {% block body %}
     <h1>Page de gestion de compte</h1>
+    <div class="success"><br>
 
-    <div class="success">
-
-    <button type="button" class="buttonSend"><a href="{{ path('app_change_password_partenaire') }}">Changement du mot de passe</a></button>
-        <button type="button" class="buttonSend"><a href="{{ path('app_liste_permissions_partenaire') }}">Liste des bâtiments</a></button>
-        <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure_partenaire') }}">Liste des structures</a></button>
-        <button type="button" class="buttonSend"><a href="{{ path('app_partenaire', { 'id': 1}) }}">Votre Franchise</a></button>
-
-
-
+        <h4>Présentation </h4>
+    <p>A partir de cette page, il vous sera permis de parcourir toutes vos structures et vos bâtiments, en activité où non.
+        <br>
+    Il ne vous sera par contre pas possible d'accéder aux modifications d'aucune d'entre elles.
+    </p>
+        <button type="button" class="buttonSend"><a href="{{ path('app_change_password_partenaire') }}">Changement du mot de passe</a></button>
+        <div class="identifiants" style="width: 30%;">
+            <ul>
+                <li><b style="color: rgba(73, 106, 123, 0.96);">Nom de la franchise:</b> {{ partenaire.clientName }}</li>
+                <li><b style="color: rgba(73, 106, 123, 0.96);">Entrprise en activité :</b> {{ partenaire.active ? 'Oui' : 'Non' }}</li>
+                <li><b style="color: rgba(73, 106, 123, 0.96);">Description rapide:</b> {{ partenaire.shortDescription }}</li>
+                <li><b style="color: rgba(73, 106, 123, 0.96);">URL : </b> {{ partenaire.url }}</li>
+            </ul>
+        </div>
+        <div class="successButton">
+            <button type="button" class="buttonSend"><a href="{{ path('app_liste_permissions_partenaire') }}">Liste des bâtiments</a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_partenaire', { 'id': 1}) }}">Votre Franchise</a></button>
+            <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure_partenaire') }}">Liste des structures</a></button>
+        </div>
     </div>
 {% endblock %}

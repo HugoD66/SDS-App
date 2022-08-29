@@ -8,10 +8,13 @@ use App\Entity\Structure;
 use App\Form\PartenaireType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
@@ -36,13 +39,15 @@ class PartenaireController extends AbstractController
     }
 
 
+
     #[Route('/partenaire/update/{id}', name: 'app_update_partenaire')]
     public function update(Request $request,
                            ManagerRegistry $doctrine,
                            SluggerInterface $slugger,
                            int $id,
                            EntityManagerInterface $entityManager,
-                           UserPasswordHasherInterface $userPasswordHasher): Response
+                           UserPasswordHasherInterface $userPasswordHasher,
+                           MailerInterface $mailer): Response
     {
         $user = $this->getUser();
 
@@ -82,7 +87,15 @@ class PartenaireController extends AbstractController
             //flush
             $entityManager->persist($partenaireUpdate);
             $entityManager->flush();
-            return $this->redirectToRoute('app_home');
+            //Email
+            $mailer->send(
+                (new TemplatedEmail())
+                    ->from('Dantabase@gmail.com')
+                    ->to($partenaire->getEmail())
+                    ->subject('Notif. modification partenaire')
+                    ->htmlTemplate('mail/update-partenaire.html.twig')
+            );
+            return $this->redirectToRoute('app_panel');
         }
         return $this->render('update/update-partenaire.html.twig', [
             'form' => $form->createView(),

@@ -20,6 +20,7 @@ class StructureStructureController extends AbstractController
         return $this->render('structure/structure-structure.html.twig', [
             'title' => 'Dantabase - Structure de l\'entreprise',
             'structure' => $structure,
-            'permissions' => $permission,        ]);
+            'permissions' => $permission,
+            ]);
     }
 }
