@@ -8,15 +8,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class PermissionPartenaireController extends AbstractController
+class PermissionStructureController extends AbstractController
 {
-    #[Route('/login-partenaire/permission/{id}', name: 'app_permission_partenaire')]
+    #[Route('/login-structure/permission/{id}', name: 'app_permission_structure')]
     public function index(ManagerRegistry $doctrine,int $id): Response
     {
 
         $permission = $doctrine->getRepository(Permission::class)->find($id);
 
-        return $this->render('structure/permission-partenaire.html.twig', [
+        return $this->render('structure/permission-structure.html.twig', [
             'title' => 'Dantabase - Bâtiment de l\'entreprise',
             'permission' => $permission,
             ]);

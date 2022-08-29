@@ -14,7 +14,8 @@ class HomeController extends AbstractController
         $user = $this->getUser();
 
         return $this->render('home.html.twig', [
-            'title' => 'Dantabase - Acceuil'
+            'title' => 'Dantabase - Acceuil',
+            'user' => $user,
             ]);
     }
 }

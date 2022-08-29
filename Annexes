@@ -7,10 +7,13 @@ restera activable ou désactivable.
 
 
 Permissions globales
-Connexion impossible si non activé.
+Mailing
+
 
 Searchbar
 Isactive liste montrer seulement
+
+Page gestion compte  Partenaire/Permission
 
 
 
@@ -33,4 +36,6 @@ Manuel d'utilisation :
 
 A METTRE :
 
-- Bug non résolu: Quand entitée désactivée  , Exception retourne Les identifiants invalides, et non pas que le compte n'est pas activé.
+- Bug non résolu:
+
+Quand entitée désactivée  , Exception retourne Les identifiants invalides, et non pas que le compte n'est pas activé.

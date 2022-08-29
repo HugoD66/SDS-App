@@ -2,15 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\Partenaire;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class LoginPartenaireController extends AbstractController
+class LoginStructureController extends AbstractController
 {
-    #[Route(path: '/login-partenaire', name: 'app_login_partenaire')]
+    #[Route(path: '/login-structure', name: 'app_login_structure')]
     public function loginPartenaire(AuthenticationUtils $authenticationUtils): Response
     {
         // if ($this->getUser()) {
@@ -20,11 +19,11 @@ class LoginPartenaireController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('registration/login-partenaire.html.twig', [
+        return $this->render('registration/login-structure.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
-            'partenaire' => 'app_partenaire_provider',
-            'title' => 'Dantabase - Connexion Franchise',
+            'structure' => 'app_structure_provider',
+            'title' => 'Dantabase - Connexion Structure',
         ]);
     }
 

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>Page de gestion de compte</h1>
+<div class="success">
+    <button type="button" class="buttonSend"><a href="{{ path('app_change_password_structure') }}">Changement du mot de passe</a></button>
+    <button type="button" class="buttonSend"><a href="{{ path('app_liste_permission_structure') }}">Liste des bâtiments</a></button>
+    <button type="button" class="buttonSend"><a href="{{ path('app_liste_structure_structure') }}">Liste des structures</a></button>
+    <button type="button" class="buttonSend"><a href="{{ path('app_partenaire_structure', { 'id': 1}) }}">Votre Franchise</a></button>
+
+</div>
+{% endblock %}

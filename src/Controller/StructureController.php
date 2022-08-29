@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
@@ -32,7 +33,7 @@ class StructureController extends AbstractController
 
 
     #[Route('/structure/update/{id}', name: 'app_update_structure')]
-    public function update(Request $request, ManagerRegistry $doctrine, SluggerInterface $slugger, int $id, EntityManagerInterface $entityManager): Response
+    public function update(Request $request, ManagerRegistry $doctrine, UserPasswordHasherInterface $userPasswordHasher, SluggerInterface $slugger, int $id, EntityManagerInterface $entityManager): Response
     {
         $structure = $doctrine->getRepository(Structure::class)->find($id);
 
@@ -45,6 +46,12 @@ class StructureController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $structureUpdate->setPassword(
+                $userPasswordHasher->hashPassword(
+                    $structureUpdate,
+                    $form->get('plainPassword')->getData()
+                )
+            );
             $logoStructure = $form->get('logoStructure')->getData();
             if ($logoStructure) {
                 $originalFilename = pathinfo($logoStructure->getClientOriginalName(), PATHINFO_FILENAME);

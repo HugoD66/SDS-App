@@ -3,21 +3,22 @@
 namespace App\Form;
 
 use App\Entity\Partenaire;
+use App\Entity\Structure;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ChangePasswordPartenaireType extends AbstractType
+class ChangePasswordStructureType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-
             ->add('plainPassword', PasswordType::class, [
                 'label' => 'Nouveau mot de passe',
                 'mapped' => false,
@@ -37,7 +38,7 @@ class ChangePasswordPartenaireType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('logo', FileType::class, [
+            ->add('logo_structure', FileType::class, [
                 'label' => 'Photo de l\'entreprise ',
                 "data_class" => null,
             ])
@@ -45,14 +46,12 @@ class ChangePasswordPartenaireType extends AbstractType
                 'attr' => array(
                     'class' => 'buttonSend'
                 )
-            ])
-        ;
+            ]);
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Partenaire::class,
+            'data_class' => Structure::class,
 
         ]);
     }

@@ -13,8 +13,8 @@
         <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel') }}">Acceuil</a></button>
         {% elseif app.user.roles == ['ROLE_PARTENAIRE'] %}
         <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel_partenaire') }}">Acceuil</a></button>
-        {% else %}
-        <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel') }}">Acceuil</a></button>
+        {% elseif app.user.roles == ['ROLE_STRUCTURE'] %}
+        <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel_structure') }}">Acceuil</a></button>
         {% endif %}
     {% else %}
         <button type="button" name="button" class="btn button bg-dark"><a href="{{ path('app_panel') }}">Acceuil</a></button>

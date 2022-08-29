@@ -15,11 +15,11 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class LoginPartenaireAuthenticator extends AbstractLoginFormAuthenticator
+class LoginStructureAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'app_login_partenaire';
+    public const LOGIN_ROUTE = 'app_login_structure';
 
     public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
@@ -48,7 +48,7 @@ class LoginPartenaireAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
-         return new RedirectResponse($this->urlGenerator->generate('app_liste_permissions_partenaire'));
+        return new RedirectResponse($this->urlGenerator->generate('app_liste_permission_structure'));
         //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 

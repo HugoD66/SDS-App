@@ -2,11 +2,11 @@
 
 namespace App\Security;
 
-use App\Entity\Partenaire as AppUser;
+use App\Entity\Structure as AppUser;
 use Symfony\Component\Security\Core\Exception\DisabledException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-class UserChecker implements UserCheckerInterface
+class UserCheckerStructure implements UserCheckerInterface
 {
     public function checkPreAuth(UserInterface $user): void
     {

@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block body %}
+    <h1>{{ structure.name }}</h1>
+    <div class="structureId">
+        <img src="{{ asset('picture/recipe-picture/' ~ structure.getLogoStructure()) }} " class="card-img-top" alt="Image de la structure">
+        <div class="barreHorizontale"></div>
+        <h2>Franchise : {{ structure.clientId }}</h2>
+        <h3>Coordronnées de la structure: </h3>
+        <ul>
+            <li>Ville : {{ structure.city }}</li>
+            <li>Nom de la structure : {{ structure.name }}</li>
+            <li style="color: red; font-weight: bold;">En activitée : {{ structure.active ? 'Oui' : 'Non'}}</li>
+            <li>Email du gérant : {{ structure.email }}</li>
+            <br>
+        </ul>
+        {% if app.user.roles == ['ROLE_ADMIN'] %}
+            <div class="buttonModif">
+                <button type="button" class="buttonSend"><a href="{{ path('app_update_structure', {'id' : structure.id }) }}"> Modifier la structure</a></button>
+                <button type="button"
+                        class="buttonSend">
+                    <a href="{{ path('app_delete_structure', {'id': structure.id}) }}"> Supprimer la structure
+                    </a>
+                </button>
+            </div>
+        {% endif %}
+        <br>
+    </div>
+    <h2 style="color:#DEDEDE; text-align: center; margin-top: 4%;">Bâtiments que posséde la structure: </h2>
+    <div class="structureId">
+        {% for permission in permissions %}
+            {% if permission.branchId == structure %}
+                <div class="listePermissions">
+                    <h3><u>Adresse</u> : {{ permission.street }}</h3>
+                    <ul>
+                        <li>Envoyer newsletter : {{ permission.sendNewsletter ? 'Oui' : 'Non' }}</li>
+                        <li>Vendre boissons : {{ permission.sellDrink ? 'Oui' : 'Non' }}</li>
+                        <li>Voir stats paiement	: {{ permission.paymentStats ? 'Oui' : 'Non' }}</li>
+                        <li>Ajouter membre : {{ permission.addMembers ? 'Oui' : 'Non' }}</li>
+                        <li>Recruter sallarier : {{ permission.recrutEmployee ? 'Oui' : 'Non' }}</li>
+                        <li>Site activé : {{ permission.activatedWebsite ? 'Oui' : 'Non' }}</li>
+                        <li>Recherche nouveau lieu : {{ permission.placeSearch ? 'Oui' : 'Non' }}</li>
+                        <li>Restaurant sur place : {{ permission.restaurantSite ? 'Oui' : 'Non' }}</li>
+                        <li>Renauvation à pervoire : {{ permission.renovation ? 'Oui' : 'Non' }}</li>
+                        <li>Coach disponible : {{ permission.availableCoach ? 'Oui' : 'Non' }}</li>
+                        <li style="color:red;"> <b>Structure en activité ? {{ permission.isActive ? 'Oui' : 'Non' }}</b></li>
+                    </ul>
+                    {% if app.user.roles == ['ROLE_ADMIN'] %}
+                        <div class="buttons">
+                            <button type="button"
+                                    class="buttonSend">
+                                <a href="{{ path('app_update_permission', {'id': permission.id}) }}"> Accés aux modifs. du Bâtiment
+                                </a>
+                            </button>
+                            <button type="button"
+                                    class="buttonSend">
+                                <a href="{{ path('app_delete_permission', {'id': permission.id}) }}"> Supprimer Bâtiment
+                                </a>
+                            </button>
+                            <button type="button" class="buttonSend"><a href="{{ path('app_permission', {'id': permission.id}) }}">Accés au bâtiment</a></button>
+                        </div>
+                        <br>
+                    {% else %}
+                        <button type="button" class="buttonSend"><a href="{{ path('app_permission_structure', {'id': permission.id}) }}">Accés au bâtiment</a></button>
+                        <br>
+                    {% endif %}
+                    <div class="barreHorizontale"></div>
+                    <br>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

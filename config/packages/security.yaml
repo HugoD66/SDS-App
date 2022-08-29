@@ -6,16 +6,25 @@ security:
             algorithm: auto
         App\Entity\Partenaire:
             algorithm: auto
+        App\Entity\Structure:
+            algorithm: auto
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
 
     providers:
         app_user_provider:
             entity: { class: App\Entity\Admin, property: email }
         app_partenaire_provider:
-            entity: { class: App\Entity\Partenaire, property: email },
+            entity:
+                class: App\Entity\Partenaire
+                property: email
+        app_structure_provider:
+            entity:
+                class: App\Entity\Structure
+                property: email
+
         providers:
             chain:
-                providers: ['app_user_provider', 'app_partenaire_provider']
+                providers: ['app_user_provider', 'app_partenaire_provider', 'app_structure_provider']
 
     firewalls:
         dev:
@@ -29,9 +38,18 @@ security:
             provider: app_partenaire_provider
             custom_authenticator: App\Security\LoginPartenaireAuthenticator
             user_checker: App\Security\UserChecker
-
             logout:
                 target: app_home
+
+        structure:
+            lazy: true
+            pattern: ^/login-structure
+            provider: app_structure_provider
+            custom_authenticator: App\Security\LoginStructureAuthenticator
+            user_checker: App\Security\UserCheckerStructure
+            logout:
+                target: app_home
+
 
         main:
             lazy: true
@@ -56,8 +74,8 @@ security:
             # switch_user: true
 
     role_hierarchy:
-        ROLE_PERMISSION:    ROLE_USER
-        ROLE_PARTENAIRE:    ROLE_PERMISSION
+        ROLE_STRUCTURE:    ROLE_USER
+        ROLE_PARTENAIRE:    ROLE_STRUCTURE
         ROLE_ADMIN:    ROLE_PARTENAIRE
         ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
     # Easy way to control access for large sections of your site
@@ -70,10 +88,10 @@ security:
         - { path: ^/change-password, roles: ROLE_ADMIN }
         - { path: ^/permission-globale, roles: ROLE_ADMIN }
         - { path: ^/profil, roles: ROLE_ADMIN }
-        - { path: ^/login-partenaire/ , roles: ROLE_PARTENAIRE }
-        - { path: ^/permission, roles: ROLE_PARTENAIRE }
-        - { path: ^/permissions, roles: ROLE_PARTENAIRE }
-        - { path: ^/structure, roles: ROLE_PARTENAIRE }
+        - { path: ^/login-partenaire/ , roles: ROLE_STRUCTURE }
+        - { path: ^/permission, roles: ROLE_STRUCTURE }
+        - { path: ^/permissions, roles: ROLE_STRUCTURE }
+        - { path: ^/structure, roles: ROLE_STRUCTURE }
 
 when@test:
     security:
